@@ -25,6 +25,33 @@ export default function FeaturedProduct() {
           </div>
         </div>
 
+        <div className="mt-10 grid sm:grid-cols-3 gap-4">
+          <div className="group relative rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
+            <img src="/cp8.jpg" alt="CP8 product visual" className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+              <div className="text-[10px] uppercase tracking-[0.18em] text-brand-200 font-bold">Product Spotlight</div>
+              <div className="mt-1 font-extrabold text-lg">RBD Palm Olein CP8</div>
+            </div>
+          </div>
+          <div className="group relative rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
+            <img src="/cp10.jpg" alt="CP10 product visual" className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+              <div className="text-[10px] uppercase tracking-[0.18em] text-brand-200 font-bold">Product Spotlight</div>
+              <div className="mt-1 font-extrabold text-lg">RBD Palm Olein CP10</div>
+            </div>
+          </div>
+          <div className="group relative rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-100">
+            <img src="/endproduct.jpg" alt="End product and retail packaging" className="h-56 w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+            <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
+              <div className="text-[10px] uppercase tracking-[0.18em] text-brand-200 font-bold">End Product</div>
+              <div className="mt-1 font-extrabold text-lg">Packaging-ready visual</div>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-12 grid lg:grid-cols-5 gap-8">
           <div className="lg:col-span-3 rounded-2xl ring-1 ring-slate-200 overflow-hidden shadow-sm">
             <div className="px-6 py-4 bg-gradient-to-r from-slate-50 to-brand-50 border-b border-slate-200 flex items-center gap-3">
@@ -58,6 +85,14 @@ export default function FeaturedProduct() {
           </div>
 
           <div className="lg:col-span-2 space-y-4">
+            <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-200 bg-slate-900 shadow-sm">
+              <img src="/refinery.jpg" alt="Refinery storage and production site" className="h-52 w-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                <div className="text-[10px] font-bold uppercase tracking-[0.18em] text-brand-200">Quality / Supply Source</div>
+                <div className="mt-1 text-lg font-extrabold">Refinery-backed lot consistency</div>
+              </div>
+            </div>
             <h3 className="font-bold text-slate-900 text-lg flex items-center gap-2">
               <Package size={20} className="text-brand-700" />
               Available Packaging

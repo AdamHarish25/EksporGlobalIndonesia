@@ -17,6 +17,19 @@ export default function Certifications() {
           </p>
         </div>
 
+        <div className="mt-12 overflow-hidden rounded-[2rem] ring-1 ring-slate-200 bg-slate-100 shadow-sm">
+          <div className="relative">
+            <img src="/refinery.jpg" alt="Refinery quality and production background" className="h-56 w-full object-cover" loading="lazy" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-950/20 to-transparent" />
+            <div className="absolute inset-0 p-6 sm:p-8 flex items-end">
+              <div className="max-w-2xl text-white">
+                <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Document-backed quality</div>
+                <div className="mt-2 text-2xl font-extrabold leading-tight">Every lot supported by clear proof, not just claims.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {CERT_CARDS.map(c => (
             <div

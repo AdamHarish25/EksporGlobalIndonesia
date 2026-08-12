@@ -10,25 +10,33 @@ const SPEC_HIGHLIGHTS: Array<{ k: string; v: string }> = [
 
 export default function Hero() {
   return (
-    <section id="home" className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-amber-50">
+    <section id="home" className="relative overflow-hidden bg-slate-950 text-white">
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.08]"
         style={{
-          backgroundImage:
-            'radial-gradient(circle at 20% 20%, #15803d 2px, transparent 2px), radial-gradient(circle at 80% 60%, #eab308 2px, transparent 2px)',
-          backgroundSize: '40px 40px',
+          backgroundImage: `linear-gradient(135deg, rgba(8,18,13,0.92), rgba(8,18,13,0.72)), url('/PalmTree.jpg')`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
         }}
       />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28 grid lg:grid-cols-2 gap-12 items-center">
+      <div
+        className="absolute inset-0 opacity-[0.14]"
+        style={{
+          backgroundImage:
+            'radial-gradient(circle at 20% 20%, rgba(34,197,94,0.35) 1.5px, transparent 1.5px), radial-gradient(circle at 80% 60%, rgba(234,179,8,0.35) 1.5px, transparent 1.5px)',
+          backgroundSize: '34px 34px',
+        }}
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
         <div>
-          <span className="inline-flex items-center gap-2 rounded-full bg-white border border-brand-100 px-4 py-1.5 text-xs sm:text-sm font-semibold text-brand-800 shadow-sm">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-1.5 text-xs sm:text-sm font-semibold text-brand-200 backdrop-blur-sm">
             {BRAND.heroBadge}
           </span>
-          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 leading-[1.05]">
+          <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.02]">
             Reliable Bulk Supplier of{' '}
-            <span className="text-brand-700">Premium RBD Palm Olein</span> &amp; Cooking Oil
+            <span className="text-brand-300">Premium RBD Palm Olein</span> &amp; Cooking Oil
           </h1>
-          <p className="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
+          <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
             Delivering top-grade refined palm cooking oil (CP8 &amp; CP10) directly from Indonesia&apos;s finest refineries to
             international markets. Flexible FOB/CIF terms and guaranteed quality compliance.
           </p>
@@ -45,13 +53,13 @@ export default function Hero() {
             <a
               href={LINKS.specSheet}
               download
-              className="inline-flex items-center gap-2.5 rounded-xl border-2 border-slate-300 hover:border-brand-600 hover:text-brand-700 bg-white px-7 py-3.5 text-base font-semibold text-slate-700 transition-colors"
+              className="inline-flex items-center gap-2.5 rounded-xl border border-white/20 hover:border-white/40 bg-white/5 px-7 py-3.5 text-base font-semibold text-white transition-colors backdrop-blur-sm"
             >
               <Download size={20} />
               Download Spec Sheet (PDF)
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap items-center gap-6 text-xs text-slate-500 font-medium">
+          <div className="mt-8 flex flex-wrap items-center gap-6 text-xs text-slate-300 font-medium">
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-brand-500" /> FOB Tanjung Priok / Belawan
             </div>
@@ -62,35 +70,63 @@ export default function Hero() {
         </div>
 
         <div className="relative">
-          <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 ring-1 ring-slate-200/60">
-            <div className="aspect-[4/3] bg-gradient-to-br from-brand-700 via-brand-600 to-gold-500 p-8 flex flex-col justify-between relative">
-              <div className="absolute -right-20 -top-20 w-72 h-72 rounded-full bg-white/10 blur-2xl" />
-              <div className="absolute -left-16 -bottom-16 w-72 h-72 rounded-full bg-gold-400/30 blur-2xl" />
-              <div className="relative">
-                <div className="text-white/70 text-xs font-bold uppercase tracking-[0.18em]">Premium Cooking Oil</div>
-                <div className="mt-2 text-white font-black text-3xl">RBD Palm Olein</div>
-                <div className="mt-1 flex gap-2">
-                  <span className="inline-block rounded-md bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold text-white">CP8</span>
-                  <span className="inline-block rounded-md bg-white/20 backdrop-blur px-3 py-1 text-xs font-bold text-white">CP10</span>
+          <div className="grid gap-4">
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-black/25 ring-1 ring-white/10 bg-slate-900">
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10" />
+              <img
+                src="/cp8.jpg"
+                alt="RBD Palm Olein CP8"
+                className="h-[28rem] w-full object-cover"
+                loading="eager"
+              />
+              <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-7">
+                <div className="flex flex-wrap gap-2">
+                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm ring-1 ring-white/10">
+                    CP8
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm ring-1 ring-white/10">
+                    CP10
+                  </span>
+                  <span className="inline-flex items-center rounded-full bg-brand-500/20 px-3 py-1 text-xs font-semibold text-brand-100 backdrop-blur-sm ring-1 ring-brand-400/20">
+                    100% Indonesian Origin
+                  </span>
+                </div>
+                <div className="mt-4 grid grid-cols-2 gap-3 max-w-md">
+                  {SPEC_HIGHLIGHTS.map(s => (
+                    <div key={s.k} className="rounded-2xl bg-white/92 backdrop-blur p-3 text-slate-900">
+                      <div className="text-[10px] uppercase tracking-[0.18em] text-white/80 font-bold">{s.k}</div>
+                      <div className="text-white font-extrabold text-lg mt-0.5">{s.v}</div>
+                    </div>
+                  ))}
                 </div>
               </div>
-              <div className="relative grid grid-cols-2 gap-3">
-                {SPEC_HIGHLIGHTS.map(s => (
-                  <div key={s.k} className="rounded-xl bg-white/95 backdrop-blur p-3">
-                    <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold">{s.k}</div>
-                    <div className="text-brand-800 font-extrabold text-lg mt-0.5">{s.v}</div>
-                  </div>
-                ))}
+            </div>
+
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-sm">
+                <img src="/refinery.jpg" alt="Refinery and storage tanks" className="h-40 w-full object-cover" loading="lazy" />
+                <div className="p-4">
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Production</div>
+                  <div className="mt-1 font-bold text-white">Refinery-backed supply</div>
+                </div>
+              </div>
+              <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-sm">
+                <img src="/loadingPort.jpg" alt="Loading port and export terminal" className="h-40 w-full object-cover" loading="lazy" />
+                <div className="p-4">
+                  <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Export</div>
+                  <div className="mt-1 font-bold text-white">Tanjung Priok / Belawan gateway</div>
+                </div>
               </div>
             </div>
           </div>
-          <div className="absolute -bottom-5 -left-5 bg-white rounded-2xl shadow-xl ring-1 ring-slate-100 px-5 py-4 hidden sm:block">
+
+          <div className="absolute -bottom-10 -left-5 bg-white rounded-2xl shadow-xl ring-1 ring-slate-100 px-5 py-4 hidden sm:block">
             <div className="text-xs text-slate-500 font-semibold uppercase tracking-wide">HS Code</div>
             <div className="text-2xl font-black text-slate-900 mt-0.5">{HS_CODE}</div>
           </div>
           <div className="absolute -top-5 -right-5 bg-gold-500 rounded-2xl shadow-xl px-4 py-3 hidden sm:block">
-            <div className="text-xs text-white/90 font-bold uppercase tracking-wide">100%</div>
-            <div className="text-sm font-black text-white">Indonesian Origin</div>
+            <div className="text-xs text-white/90 font-bold uppercase tracking-wide">Export Ready</div>
+            <div className="text-sm font-black text-white">FOB / CIF</div>
           </div>
         </div>
       </div>
