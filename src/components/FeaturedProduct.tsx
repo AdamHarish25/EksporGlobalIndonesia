@@ -3,7 +3,7 @@ import { PRODUCT_SPECS, PACKAGING_OPTIONS, HS_CODE } from '@/constants'
 
 export default function FeaturedProduct() {
   return (
-    <section id="products" className="py-20 lg:py-24 bg-white">
+    <section id="products" className="py-14 sm:py-20 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <span
@@ -12,10 +12,10 @@ export default function FeaturedProduct() {
           >
             Featured Product
           </span>
-          <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
+          <h2 className="mt-4 max-w-full break-words text-3xl leading-tight sm:text-4xl font-extrabold tracking-tight text-slate-900">
             Refined, Bleached &amp; Deodorized (RBD) Palm Olein
           </h2>
-          <p className="mt-4 text-lg text-slate-600">
+          <p className="mt-4 text-base sm:text-lg text-slate-600 leading-relaxed">
             Premium cooking oil grade suitable for frying, cooking, and food manufacturing. Available in CP8 &amp; CP10 to match
             your market requirements.
           </p>
