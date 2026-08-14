@@ -279,9 +279,9 @@ ${companyLine}
           <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-1 font-medium">
             <span>{BRAND.name}</span>
             <span className="text-slate-600">•</span>
-            <span>HS Code {HS_CODE}</span>
-            <span className="text-slate-600">•</span>
             <span>{SHIPPING_TERMS}</span>
+            <span className="text-slate-600">•</span>
+            <span>Made with ❤️ by WebsiteJoki.my.id</span>
           </div>
         </div>
       </div>
