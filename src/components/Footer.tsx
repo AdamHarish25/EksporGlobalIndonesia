@@ -281,7 +281,7 @@ ${companyLine}
             <span className="text-slate-600">•</span>
             <span>{SHIPPING_TERMS}</span>
             <span className="text-slate-600">•</span>
-            <span>Made with ❤️ by WebsiteJoki.my.id</span>
+            <span>Made with ❤️ by <a href="https://www.websitejoki.my.id/" target="_blank" rel="noopener noreferrer">WebsiteJoki.my.id</a></span>
           </div>
         </div>
       </div>
