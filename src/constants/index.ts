@@ -7,8 +7,7 @@ import {
 } from 'lucide-react'
 
 import type {
-  NavLink, TrustMetric, ProductSpec, PackagingOption,
-  WhyCard, CertCard, PackagingOptionValue,
+  NavLink, TrustMetric, WhyCard, CertCard,
 } from '@/types'
 
 /* -------------------------------------------------------------------------- */
@@ -17,8 +16,8 @@ import type {
 
 export const BRAND = {
   name: 'Export Global Indonesia',
-  tagline: 'Premier Agro-Commodity Exporter',
-  heroBadge: '🇮🇩 Premier Indonesian Agro-Commodity Exporter',
+  tagline: 'B2B Indonesian Sourcing & Export Partner',
+  heroBadge: '🇮🇩 Indonesian Sourcing & Export Partner',
 } as const
 
 export const CONTACT = {
@@ -32,26 +31,48 @@ export const CONTACT = {
 export const LINKS = {
   specSheet: '#',
   whatsAppGeneric: `https://wa.me/${CONTACT.whatsAppId}?text=${encodeURIComponent(
-    'Hello Export Global Indonesia, I am interested in your RBD Palm Olein CP8/CP10. Please send me the latest offer and FCO.',
+    'Hello Export Global Indonesia, I am interested in your products. Please send me more information.',
   )}`,
   whatsAppFloat: `https://wa.me/${CONTACT.whatsAppId}?text=${encodeURIComponent(
-    'Hello Export Global Indonesia, I would like to inquire about your RBD Palm Olein CP8/CP10 export offer.',
+    'Hello Export Global Indonesia, I would like to inquire about your products.',
   )}`,
   whatsAppDirect: `https://wa.me/${CONTACT.whatsAppId}`,
 } as const
-
-export const HS_CODE = '1511.90'
-export const SHIPPING_TERMS = 'FOB Tanjung Priok / Belawan'
 
 /* -------------------------------------------------------------------------- */
 /*                                  NAVBAR                                    */
 /* -------------------------------------------------------------------------- */
 
 export const NAV_LINKS: NavLink[] = [
-  { label: 'Products', href: '#products' },
-  { label: 'Specifications', href: '#specs' },
-  { label: 'Quality & Certs', href: '#certifications' },
-  { label: 'About Us', href: '#why-us' },
+  {
+    label: 'Products',
+    href: '/products',
+    children: [
+      { label: 'Palm Cooking Oil', href: '/products/palm-cooking-oil' },
+      { label: 'Coconut Oil', href: '/products/coconut-oil' },
+      { label: 'Coconut Shell Charcoal Briquettes', href: '/products/coconut-shell-charcoal-briquettes' },
+    ],
+  },
+  {
+    label: 'Markets',
+    href: '/markets',
+    children: [
+      { label: 'Saudi Arabia', href: '/markets/saudi-arabia' },
+      { label: 'United Arab Emirates', href: '/markets/united-arab-emirates' },
+      { label: 'GCC Markets', href: '/markets/gcc' },
+    ],
+  },
+  {
+    label: 'Solutions',
+    href: '/solutions',
+    children: [
+      { label: 'Bulk Supply', href: '/solutions#bulk-supply' },
+      { label: 'Private Label', href: '/solutions#private-label' },
+      { label: 'Custom Sourcing', href: '/solutions#custom-sourcing' },
+    ],
+  },
+  { label: 'How It Works', href: '/how-it-works' },
+  { label: 'About', href: '/about' },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -61,77 +82,28 @@ export const NAV_LINKS: NavLink[] = [
 export const TRUST_METRICS: TrustMetric[] = [
   {
     icon: MapPin,
-    label: 'Origin',
+    label: 'Indonesia-Based',
     value: '100% Indonesian',
-    desc: 'Refined Palm Oil',
+    desc: 'Origin Products',
   },
   {
     icon: Award,
-    label: 'Product Grade',
-    value: 'CP8 / CP10',
-    desc: 'RBD Palm Olein',
+    label: 'Export-Ready',
+    value: 'Products',
+    desc: 'Quality Standards',
   },
   {
     icon: Droplets,
-    label: 'Moisture & Impurities',
-    value: 'Max 0.1%',
-    desc: 'Premium Standard',
+    label: 'B2B International',
+    value: 'Supply',
+    desc: 'Global Buyers',
   },
   {
     icon: Ship,
-    label: 'Shipping Terms',
-    value: 'FOB',
-    desc: 'Tanjung Priok / Belawan',
+    label: 'Export',
+    value: 'Coordination',
+    desc: 'Documentation & Logistics',
   },
-]
-
-/* -------------------------------------------------------------------------- */
-/*                              PRODUCT SECTION                               */
-/* -------------------------------------------------------------------------- */
-
-export const PRODUCT_SPECS: ProductSpec[] = [
-  { param: 'Free Fatty Acid (FFA)', cp8: 'Max 0.1%', cp10: 'Max 0.1%' },
-  { param: 'Iodine Value (IV)', cp8: 'Min 58', cp10: 'Min 56' },
-  { param: 'Color (5.25" Lovibond Red)', cp8: 'Max 3.0', cp10: 'Max 3.0' },
-  { param: 'Melting Point', cp8: 'Max 24°C', cp10: 'Max 24°C' },
-  { param: 'Moisture & Impurities', cp8: 'Max 0.1%', cp10: 'Max 0.1%' },
-  { param: 'Peroxide Value (meq/kg)', cp8: 'Max 1.0', cp10: 'Max 1.0' },
-]
-
-export const PACKAGING_OPTIONS: PackagingOption[] = [
-  {
-    icon: Droplet,
-    size: '1L PET Bottle',
-    pack: '12 Bottles / Master Carton',
-    detail: 'Retail-ready • 12L net / ctns',
-  },
-  {
-    icon: Droplet,
-    size: '2L PET Bottle',
-    pack: '6 Bottles / Master Carton',
-    detail: 'Retail-ready • 12L net / ctns',
-  },
-  {
-    icon: Package,
-    size: '18L / 20L Jerry Can',
-    pack: 'Stackable HDPE Can',
-    detail: 'Food-grade • HoReCa & bulk use',
-  },
-  {
-    icon: FlaskConical,
-    size: 'Flexitank / ISO Tank',
-    pack: '20ft FCL Bulk',
-    detail: '19.5 – 20 MT per container',
-  },
-]
-
-export const FORM_PACKAGING_OPTIONS: PackagingOptionValue[] = [
-  { value: '', label: 'Select packaging...' },
-  { value: '1L PET Bottle (12/carton)', label: '1L PET Bottle (12/carton)' },
-  { value: '2L PET Bottle (6/carton)', label: '2L PET Bottle (6/carton)' },
-  { value: '18L / 20L Jerry Can', label: '18L / 20L Jerry Can' },
-  { value: 'Flexitank / ISO Tank (bulk)', label: 'Flexitank / ISO Tank (bulk)' },
-  { value: 'Mixed / Custom Packaging', label: 'Mixed / Custom Packaging' },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -141,26 +113,74 @@ export const FORM_PACKAGING_OPTIONS: PackagingOptionValue[] = [
 export const WHY_CARDS: WhyCard[] = [
   {
     icon: Factory,
-    title: 'Direct Refinery Network',
-    desc: 'Direct sourcing from refinery partners across Sumatra & Java to guarantee year-round supply security with zero middlemen.',
-    highlight: 'Supply Security',
+    title: 'Indonesian Sourcing',
+    desc: 'Access products sourced from Indonesian manufacturers and suppliers across the archipelago.',
+    highlight: 'Direct Source',
   },
   {
     icon: ShieldCheck,
-    title: 'Quality Assurance',
-    desc: 'Official laboratory Certificate of Analysis (CoA) issued per lot, ensuring every loaded container meets international quality standards.',
-    highlight: 'Lot-by-Lot CoA',
+    title: 'Buyer-Specific Requirements',
+    desc: 'Product specifications, packaging and quantity can be discussed according to buyer requirements.',
+    highlight: 'Flexible',
   },
   {
     icon: Handshake,
-    title: 'Flexible Export Terms',
-    desc: 'Accommodates both L/C at Sight and T/T payment terms with fully transparent export document processing (COO, Health Certificate, B/L).',
-    highlight: 'L/C • T/T Accepted',
+    title: 'Export Coordination',
+    desc: 'Coordinate documentation, logistics and shipment preparation with relevant partners.',
+    highlight: 'End-to-End',
+  },
+  {
+    icon: Globe,
+    title: 'Transparent Communication',
+    desc: 'Clear product information, quotation and transaction requirements.',
+    highlight: 'Clear Process',
   },
 ]
 
 /* -------------------------------------------------------------------------- */
-/*                               LOGISTICS                                    */
+/*                               CERTIFICATIONS                               */
+/* -------------------------------------------------------------------------- */
+
+export const CERT_CARDS: CertCard[] = [
+  {
+    icon: TestTubeDiagonal,
+    title: 'Certificate of Analysis',
+    acronym: 'CoA',
+    desc: 'Official lab results per lot covering key parameters.',
+    color: 'brand',
+  },
+  {
+    icon: Leaf,
+    title: 'Halal Certificate',
+    acronym: 'Halal',
+    desc: 'Issued by recognized Indonesian Halal certification body.',
+    color: 'emerald',
+  },
+  {
+    icon: Globe,
+    title: 'Certificate of Origin',
+    acronym: 'COO / Form E',
+    desc: 'Proof of Indonesian origin for customs clearance.',
+    color: 'gold',
+  },
+  {
+    icon: FileSignature,
+    title: 'Bill of Lading',
+    acronym: 'B/L',
+    desc: 'Clean on-board ocean B/L for cargo release.',
+    color: 'slate',
+  },
+]
+
+export const CERT_PALETTE: Record<CertCard['color'], string> = {
+  brand: 'from-brand-500 to-brand-700 shadow-brand-500/30',
+  emerald: 'from-emerald-500 to-emerald-700 shadow-emerald-500/30',
+  gold: 'from-gold-500 to-amber-600 shadow-gold-500/30',
+  slate: 'from-slate-600 to-slate-800 shadow-slate-500/30',
+}
+
+/* -------------------------------------------------------------------------- */
+/*                              EXPORT DOCUMENTS                              */
 /* -------------------------------------------------------------------------- */
 
 export const EXPORT_DOCUMENTS: string[] = [
@@ -181,45 +201,54 @@ export const EXTRA_STANDARDS: string[] = [
 ]
 
 /* -------------------------------------------------------------------------- */
-/*                             CERTIFICATIONS                                 */
+/*                                  FAQ                                       */
 /* -------------------------------------------------------------------------- */
 
-export const CERT_CARDS: CertCard[] = [
+export const FAQ_DATA = [
   {
-    icon: TestTubeDiagonal,
-    title: 'Certificate of Analysis',
-    acronym: 'CoA',
-    desc: 'Official lab results per lot covering FFA, IV, color, moisture & all key parameters.',
-    color: 'brand',
+    question: 'What products does Export Global Indonesia supply?',
+    answer: 'We supply three main product lines: Palm Cooking Oil (RBD Palm Olein CP8/CP10), Coconut Oil, and Coconut Shell Charcoal Briquettes. Our architecture supports additional Indonesian products upon buyer request.',
   },
   {
-    icon: Leaf,
-    title: 'Halal Certificate',
-    acronym: 'Halal',
-    desc: 'Issued by recognized Indonesian Halal certification body for MUI & global Halal markets.',
-    color: 'emerald',
+    question: 'What are the minimum order quantities (MOQ)?',
+    answer: 'MOQ varies by product. For palm cooking oil, the standard MOQ is 1×20ft FCL (approximately 18–20 MT). For other products, MOQ is subject to supplier confirmation. Contact us for specific requirements.',
   },
   {
-    icon: Globe,
-    title: 'Certificate of Origin',
-    acronym: 'COO / Form E',
-    desc: 'Proof of Indonesian origin — valid for ASEAN preferential tariffs & customs clearance.',
-    color: 'gold',
+    question: 'Which incoterms do you offer?',
+    answer: 'We primarily offer FOB (Tanjung Priok / Belawan) terms. Other incoterms can be discussed based on buyer requirements and destination.',
   },
   {
-    icon: FileSignature,
-    title: 'Bill of Lading',
-    acronym: 'B/L',
-    desc: 'Clean on-board ocean B/L — negotiable document of title for cargo release.',
-    color: 'slate',
+    question: 'Do you provide private label services?',
+    answer: 'Yes, private label is available for all our product lines. We can accommodate custom packaging, labeling, and branding requirements through our manufacturing partners.',
+  },
+  {
+    question: 'What documentation is provided with each shipment?',
+    answer: 'Standard documentation includes Commercial Invoice, Packing List, Bill of Lading, Certificate of Origin, Halal Certificate, and Certificate of Analysis. Additional documents are available upon request.',
+  },
+  {
+    question: 'How do I request a quotation?',
+    answer: 'You can request a quotation through our Request a Quote page, by WhatsApp, or by email. Provide your product requirements, quantity, destination, and any specific needs.',
+  },
+  {
+    question: 'What payment terms do you accept?',
+    answer: 'We accept L/C (Letter of Credit) at Sight and T/T (Telegraphic Transfer). Payment terms can be discussed based on order size and buyer profile.',
+  },
+  {
+    question: 'Do you supply to Saudi Arabia and UAE?',
+    answer: 'Yes, Saudi Arabia and UAE are our primary target markets. We also serve other GCC countries including Qatar, Kuwait, Oman, and Bahrain.',
   },
 ]
 
-export const CERT_PALETTE: Record<CertCard['color'], string> = {
-  brand: 'from-brand-500 to-brand-700 shadow-brand-500/30',
-  emerald: 'from-emerald-500 to-emerald-700 shadow-emerald-500/30',
-  gold: 'from-gold-500 to-amber-600 shadow-gold-500/30',
-  slate: 'from-slate-600 to-slate-800 shadow-slate-500/30',
-}
+export const HOW_IT_WORKS_STEPS = [
+  { step: '01', title: 'Inquiry', desc: 'Tell us what product and quantity you need.' },
+  { step: '02', title: 'Requirement Review', desc: 'We review your specifications and requirements.' },
+  { step: '03', title: 'Supplier Sourcing', desc: 'We match with suitable Indonesian suppliers.' },
+  { step: '04', title: 'Quotation', desc: 'Receive a detailed quotation with pricing.' },
+  { step: '05', title: 'Sample / Verification', desc: 'Request samples for quality verification.' },
+  { step: '06', title: 'Order Confirmation', desc: 'Confirm order and arrange payment.' },
+  { step: '07', title: 'Production / Preparation', desc: 'Supplier prepares your order.' },
+  { step: '08', title: 'Export Preparation', desc: 'Documentation and logistics coordination.' },
+  { step: '09', title: 'Shipment', desc: 'Cargo is shipped to your destination port.' },
+]
 
 export type { LucideIcon }
