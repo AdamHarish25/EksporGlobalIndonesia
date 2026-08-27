@@ -155,14 +155,14 @@ export default function HomePage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-sm">
-                  <img src="/refinery.jpg" alt="Refinery" className="h-40 w-full object-cover" loading="lazy" />
+                  <img src="/PalmOilRefinery.jpg" alt="Palm oil refinery" className="h-40 w-full object-cover" loading="lazy" />
                   <div className="p-4">
                     <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Indonesian Origin</div>
                     <div className="mt-1 font-bold text-white">Refinery-backed supply</div>
                   </div>
                 </div>
                 <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-sm">
-                  <img src="/loadingPort.jpg" alt="Export port" className="h-40 w-full object-cover" loading="lazy" />
+                  <img src="/AerialContainerPort.jpg" alt="Export port" className="h-40 w-full object-cover" loading="lazy" />
                   <div className="p-4">
                     <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Export Ready</div>
                     <div className="mt-1 font-bold text-white">FOB Terms</div>
@@ -402,7 +402,7 @@ export default function HomePage() {
           </div>
           <div className="mt-12 grid lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl">
-              <img src="/refinery.jpg" alt="Private label manufacturing" className="h-80 w-full object-cover" loading="lazy" />
+              <img src="/endproduct.jpg" alt="Private label manufacturing" className="h-80 w-full object-cover" loading="lazy" />
             </div>
             <div>
               <h3 className="text-2xl font-extrabold text-slate-900">How Private Label Works</h3>

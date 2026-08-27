@@ -47,7 +47,7 @@ export default function ProductDetailPage() {
   const categoryColors: Record<string, string> = {
     gold: 'bg-gold-500/10 text-gold-600 ring-gold-500/20',
     brand: 'bg-brand-500/10 text-brand-700 ring-brand-500/20',
-    slate: 'bg-slate-500/10 text-slate-700 ring-slate-500/20',
+    slate: 'bg-slate-500/10 text-white/60 ring-white/50',
   }
 
   return (

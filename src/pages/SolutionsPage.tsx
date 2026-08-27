@@ -130,7 +130,7 @@ export default function SolutionsPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl">
-              <img src="/loadingPort.jpg" alt="Bulk supply shipping" className="h-80 w-full object-cover" loading="lazy" />
+              <img src="/TerminalContainerAerial.jpg" alt="Bulk supply shipping" className="h-80 w-full object-cover" loading="lazy" />
             </div>
           </div>
         </div>
@@ -141,7 +141,7 @@ export default function SolutionsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl order-2 lg:order-1">
-              <img src="/refinery.jpg" alt="Private label manufacturing" className="h-80 w-full object-cover" loading="lazy" />
+              <img src="/endproduct.jpg" alt="Private label manufacturing" className="h-80 w-full object-cover" loading="lazy" />
             </div>
             <div className="order-1 lg:order-2">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/20">

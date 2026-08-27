@@ -60,7 +60,7 @@ export default function AboutPage() {
               </div>
             </div>
             <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl">
-              <img src="/refinery.jpg" alt="Export Global Indonesia operations" className="h-[28rem] w-full object-cover" loading="lazy" />
+              <img src="/PalmOilRefinery.jpg" alt="Export Global Indonesia operations" className="h-[28rem] w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Indonesia-Based Export Partner</div>

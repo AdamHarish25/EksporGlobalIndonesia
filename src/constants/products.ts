@@ -132,8 +132,8 @@ export const PRODUCTS: Product[] = [
     ],
     certifications: ['CoA', 'Halal'],
     privateLabelAvailable: true,
-    image: '/refinery.jpg',
-    gallery: ['/refinery.jpg'],
+    image: '/CoconutOil.jpg',
+    gallery: ['/CoconutOil.jpg', '/CoconutShells.jpg'],
   },
   {
     id: 'coconut-shell-charcoal-briquettes',
@@ -172,8 +172,8 @@ export const PRODUCTS: Product[] = [
     ],
     certifications: ['CoA'],
     privateLabelAvailable: true,
-    image: '/endproduct.jpg',
-    gallery: ['/endproduct.jpg'],
+    image: '/CocoBriquette.jpg',
+    gallery: ['/CocoBriquette.jpg', '/CoconutShells.jpg'],
   },
 ]
 
