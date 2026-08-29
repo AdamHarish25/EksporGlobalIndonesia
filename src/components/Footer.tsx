@@ -10,8 +10,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div>
-            <BrandLogo className="w-44 h-fit" line={BRAND.tagline} background={false} />
-            <p className="mt-4 text-sm text-slate-400 leading-relaxed">
+            <BrandLogo className="w-44 h-fit" line={BRAND.tagline} background={true} />
+            <p className="mt-4 text-sm text-slate leading-relaxed">
               Connecting global buyers with quality products from Indonesia.
             </p>
             <div className="mt-5 space-y-3">
