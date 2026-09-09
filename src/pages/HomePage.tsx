@@ -42,7 +42,7 @@ const SOLUTIONS = [
     id: 'bulk-supply',
     icon: Package,
     title: 'Bulk Supply',
-    desc: 'Full-container-load (FCL) supply of palm cooking oil, coconut oil, and charcoal briquettes with competitive FOB pricing.',
+    desc: 'Full-container-load (FCL) supply of coconut oil and charcoal briquettes with competitive FOB pricing.',
     features: ['FCL quantities (18–20 MT per container)',       'FOB terms available', 'Lot-by-lot quality verification', 'Flexible shipping schedules'],
     cta: 'Request Bulk Quote',
   },
@@ -87,7 +87,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 opacity-[0.08]"
           style={{
-            backgroundImage: `linear-gradient(135deg, rgba(8,18,13,0.92), rgba(8,18,13,0.72)), url('/PalmTree.jpg')`,
+            backgroundImage: `linear-gradient(135deg, rgba(8,18,13,0.92), rgba(8,18,13,0.72)), url('/CoconutOil.jpg')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -155,7 +155,7 @@ export default function HomePage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-sm">
-                  <img src="/PalmOilRefinery.jpg" alt="Palm oil refinery" className="h-40 w-full object-cover" loading="lazy" />
+                  <img src="/CoconutShells.jpg" alt="Indonesian coconut shells" className="h-40 w-full object-cover" loading="lazy" />
                   <div className="p-4">
                     <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Indonesian Origin</div>
                     <div className="mt-1 font-bold text-white">Refinery-backed supply</div>

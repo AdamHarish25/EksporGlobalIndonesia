@@ -6,8 +6,8 @@ export const MARKETS: Market[] = [
     name: 'Saudi Arabia',
     slug: 'saudi-arabia',
     flag: '🇸🇦',
-    description: 'Saudi Arabia represents one of the largest import markets for Indonesian food and hospitality products. The Kingdom\'s growing hospitality sector and large consumer base create strong demand for quality cooking oils and charcoal briquettes.',
-    relevantProducts: ['palm-cooking-oil', 'coconut-oil', 'coconut-shell-charcoal-briquettes'],
+    description: 'Saudi Arabia represents one of the largest import markets for Indonesian food and hospitality products. The Kingdom\'s growing hospitality sector and large consumer base create strong demand for quality coconut oil and charcoal briquettes.',
+    relevantProducts: ['coconut-oil', 'coconut-shell-charcoal-briquettes'],
     buyerTypes: [
       'Importers & Distributors',
       'Food Service Companies',
@@ -46,8 +46,8 @@ export const MARKETS: Market[] = [
     name: 'United Arab Emirates',
     slug: 'united-arab-emirates',
     flag: '🇦🇪',
-    description: 'The UAE is a major re-export hub for the Middle East and Africa region. Dubai and Abu Dhabi serve as gateways for Indonesian products reaching wider GCC and MENA markets. Strong demand for cooking oils and charcoal briquettes across food service and hospitality sectors.',
-    relevantProducts: ['palm-cooking-oil', 'coconut-oil', 'coconut-shell-charcoal-briquettes'],
+    description: 'The UAE is a major re-export hub for the Middle East and Africa region. Dubai and Abu Dhabi serve as gateways for Indonesian products reaching wider GCC and MENA markets. Strong demand for coconut oil and charcoal briquettes across food service and hospitality sectors.',
+    relevantProducts: ['coconut-oil', 'coconut-shell-charcoal-briquettes'],
     buyerTypes: [
       'Importers & Re-exporters',
       'Distributors',
@@ -89,7 +89,7 @@ export const MARKETS: Market[] = [
     slug: 'gcc',
     flag: '🌐',
     description: 'The Gulf Cooperation Council (GCC) region — including Qatar, Kuwait, Oman, and Bahrain — represents a collective market with growing demand for Indonesian commodity products. These markets share similar quality requirements and cultural preferences.',
-    relevantProducts: ['palm-cooking-oil', 'coconut-oil', 'coconut-shell-charcoal-briquettes'],
+    relevantProducts: ['coconut-oil', 'coconut-shell-charcoal-briquettes'],
     buyerTypes: [
       'Importers & Distributors',
       'Food Service Companies',

@@ -48,7 +48,6 @@ export const NAV_LINKS: NavLink[] = [
     label: 'Products',
     href: '/products',
     children: [
-      { label: 'Palm Cooking Oil', href: '/products/palm-cooking-oil' },
       { label: 'Coconut Oil', href: '/products/coconut-oil' },
       { label: 'Coconut Shell Charcoal Briquettes', href: '/products/coconut-shell-charcoal-briquettes' },
     ],
@@ -207,11 +206,11 @@ export const EXTRA_STANDARDS: string[] = [
 export const FAQ_DATA = [
   {
     question: 'What products does Export Global Indonesia supply?',
-    answer: 'We supply three main product lines: Palm Cooking Oil (RBD Palm Olein CP8/CP10), Coconut Oil, and Coconut Shell Charcoal Briquettes. Our architecture supports additional Indonesian products upon buyer request.',
+    answer: 'We supply two main product lines: Coconut Oil and Coconut Shell Charcoal Briquettes. Our architecture supports additional Indonesian products upon buyer request.',
   },
   {
     question: 'What are the minimum order quantities (MOQ)?',
-    answer: 'MOQ varies by product. For palm cooking oil, the standard MOQ is 1×20ft FCL (approximately 18–20 MT). For other products, MOQ is subject to supplier confirmation. Contact us for specific requirements.',
+    answer: 'MOQ varies by product. Please contact us for specific requirements.',
   },
   {
     question: 'Which incoterms do you offer?',

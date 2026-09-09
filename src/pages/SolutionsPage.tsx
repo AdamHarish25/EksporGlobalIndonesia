@@ -9,7 +9,7 @@ const SOLUTIONS = [
     id: 'bulk-supply',
     icon: Package,
     title: 'Bulk Supply',
-    desc: 'Full-container-load (FCL) supply of palm cooking oil, coconut oil, and charcoal briquettes with competitive FOB pricing.',
+    desc: 'Full-container-load (FCL) supply of coconut oil and charcoal briquettes with competitive FOB pricing.',
     features: [
       'FCL quantities (18–20 MT per container)',
       'FOB terms available',
@@ -110,7 +110,7 @@ export default function SolutionsPage() {
               </div>
               <h2 className="mt-6 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Bulk Supply</h2>
               <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                Full-container-load (FCL) supply of palm cooking oil, coconut oil, and charcoal briquettes with competitive FOB pricing. Ideal for importers, distributors, and large-scale buyers.
+                Full-container-load (FCL) supply of coconut oil and charcoal briquettes with competitive FOB pricing. Ideal for importers, distributors, and large-scale buyers.
               </p>
               <ul className="mt-8 space-y-4">
                 {SOLUTIONS[0].features.map(f => (

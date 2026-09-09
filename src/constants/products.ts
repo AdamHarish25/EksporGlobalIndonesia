@@ -6,19 +6,6 @@ import {
 import type { Product, ProductSpecification } from '@/types'
 
 /* -------------------------------------------------------------------------- */
-/*                       PALM COOKING OIL SPECIFICATIONS                      */
-/* -------------------------------------------------------------------------- */
-
-const palmOilSpecs: ProductSpecification[] = [
-  { param: 'Free Fatty Acid (FFA)', value: { value: 'Max 0.1%', status: 'VERIFIED' } },
-  { param: 'Iodine Value (IV)', value: { value: 'Min 58', status: 'VERIFIED' } },
-  { param: 'Color (5.25" Lovibond Red)', value: { value: 'Max 3.0', status: 'VERIFIED' } },
-  { param: 'Melting Point', value: { value: 'Max 24°C', status: 'VERIFIED' } },
-  { param: 'Moisture & Impurities', value: { value: 'Max 0.1%', status: 'VERIFIED' } },
-  { param: 'Peroxide Value', value: { value: 'Max 1.0 meq/kg', status: 'VERIFIED' } },
-]
-
-/* -------------------------------------------------------------------------- */
 /*                        COCONUT OIL SPECIFICATIONS                          */
 /* -------------------------------------------------------------------------- */
 
@@ -54,48 +41,6 @@ const charcoalSpecs: ProductSpecification[] = [
 /* -------------------------------------------------------------------------- */
 
 export const PRODUCTS: Product[] = [
-  {
-    id: 'palm-cooking-oil',
-    name: 'Palm Cooking Oil',
-    slug: 'palm-cooking-oil',
-    category: 'Food & Edible Oil',
-    categoryColor: 'gold',
-    shortDescription: 'Premium Indonesian palm-based cooking oil for retail, wholesale and commercial requirements.',
-    description: 'Export Global Indonesia supplies premium RBD Palm Olein (CP8 & CP10) sourced directly from Indonesian refineries. Our palm cooking oil meets international quality standards and is available in retail, bulk, and custom packaging formats for global B2B buyers.',
-    applications: [
-      'Retail Cooking Oil',
-      'Food Service / HoReCa',
-      'Commercial Food Manufacturing',
-      'Institutional Supply',
-      'Private Label Retail',
-    ],
-    specifications: palmOilSpecs,
-    packaging: [
-      { icon: Droplet, size: '1L PET Bottle', pack: '12 Bottles / Master Carton', detail: 'Retail-ready' },
-      { icon: Droplet, size: '2L PET Bottle', pack: '6 Bottles / Master Carton', detail: 'Retail-ready' },
-      { icon: Package, size: '18L / 20L Jerry Can', pack: 'Stackable HDPE Can', detail: 'HoReCa & bulk use' },
-      { icon: FlaskConical, size: 'Flexitank / ISO Tank', pack: '20ft FCL Bulk', detail: '19.5–20 MT per container' },
-    ],
-    moq: '1×20ft FCL (approx. 18–20 MT)',
-    supplyCapacity: 'Subject to supplier confirmation',
-    origin: 'Indonesia',
-    incoterms: ['FOB'],
-    destinationMarkets: ['Global'],
-    documentation: [
-      'Commercial Invoice',
-      'Packing List',
-      'Bill of Lading (B/L)',
-      'Certificate of Origin (COO / Form E)',
-      'Halal Certificate',
-      'Certificate of Analysis (CoA)',
-      'Health / Phytosanitary Certificate (if required)',
-    ],
-    certifications: ['CoA', 'Halal', 'COO / Form E'],
-    privateLabelAvailable: true,
-    image: '/cp8.jpg',
-    gallery: ['/cp8.jpg', '/cp10.jpg', '/endproduct.jpg'],
-    hsCode: '1511.90',
-  },
   {
     id: 'coconut-oil',
     name: 'Coconut Oil',
