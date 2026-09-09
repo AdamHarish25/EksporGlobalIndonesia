@@ -6,6 +6,41 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [3.1.0] - 2026-09-09
+
+### Removed
+
+#### Palm Cooking Oil Product Line
+- Hapus seluruh referensi Palm Cooking Oil dari codebase
+- Hapus Palm Cooking Oil dari navbar, footer, product listing, dan semua halaman
+- Hapus data spesifikasi palm oil (CP8/CP10) dari `src/constants/products.ts`
+- Hapus gambar lama: `PalmTree.jpg`, `PalmOilRefinery.jpg`
+- Update gambar baru: `CoconutOil.jpg`, `CoconutShells.jpg`, `CocoBriquette.jpg`, `AerialContainerPort.jpg`, `TerminalContainerAerial.jpg`, `inspection.jpg`
+- Update teks terkait palm oil di: FAQ, About Page, Solutions, Supplier Inquiry Form, Markets
+- Clean up unused product constants dan assets
+
+---
+
+### Added
+
+#### Footer Credit
+- Tambah "Powered by WebsiteJokiID Engine" di footer (`src/components/Footer.tsx`)
+
+---
+
+### Changed
+
+#### Request a Quote — Product Input Combobox
+- **Sebelum**: `<select>` dropdown dengan 4 opsi (2 produk + Custom Product + placeholder)
+- **Sesudah**: `<input>` + `<datalist>` — buyer bisa ketik bebas atau pilih dari suggestion
+- Buyer dapat menulis produk dalam bahasa mereka masing-masing
+- Dropdown suggestion tetap muncul saat mengetik
+- Custom product tetap bisa diinput tanpa batasan
+- Placeholder: "Type or select a product..."
+- File: `src/pages/RequestQuotePage.tsx` (line 190-206)
+
+---
+
 ## [3.0.0] - 2026-08-27
 
 ### Grand Revision — Multi-Product B2B Sourcing Platform
@@ -232,6 +267,7 @@ Transformasi besar-besaran dari single-product landing page menjadi platform B2B
 
 | Version | Description |
 |---|---|
+| **3.1.0** | Remove palm cooking oil, add footer credit, product input combobox |
 | **3.0.0** | Grand revision: multi-product, multi-page B2B sourcing platform |
 | **2.0.0** | Visual refinements and bug fixes |
 | **1.0.0** | Initial single-product landing page |

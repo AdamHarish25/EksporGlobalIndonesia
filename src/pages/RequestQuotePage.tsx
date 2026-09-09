@@ -188,13 +188,22 @@ export default function RequestQuotePage() {
                   <div className="grid gap-4">
                     <div>
                       <label className="block text-sm font-semibold text-slate-700 mb-1">Product *</label>
-                      <select name="product" value={form.product} onChange={handleChange} required className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.product ? 'border-red-400' : 'border-slate-200'}`}>
-                        <option value="">Select a product</option>
+                      <input
+                        type="text"
+                        name="product"
+                        value={form.product}
+                        onChange={handleChange}
+                        required
+                        list="products"
+                        placeholder="Type or select a product..."
+                        className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.product ? 'border-red-400' : 'border-slate-200'}`}
+                      />
+                      <datalist id="products">
                         {PRODUCTS.map(p => (
-                          <option key={p.id} value={p.name}>{p.name}</option>
+                          <option key={p.id} value={p.name} />
                         ))}
-                        <option value="Custom Product">Custom Product</option>
-                      </select>
+                        <option value="Custom Product" />
+                      </datalist>
                       {errors.product && <p className="mt-1 text-xs text-red-500">{errors.product}</p>}
                     </div>
                     <div>
