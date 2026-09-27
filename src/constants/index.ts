@@ -48,7 +48,8 @@ export const NAV_LINKS: NavLink[] = [
     label: 'Products',
     href: '/products',
     children: [
-      { label: 'Coconut Oil', href: '/products/coconut-oil' },
+      { label: 'Shallots (Bawang Merah)', href: '/products/shallots' },
+      { label: 'Palm Sugar (Gula Aren)', href: '/products/palm-sugar' },
       { label: 'Coconut Shell Charcoal Briquettes', href: '/products/coconut-shell-charcoal-briquettes' },
     ],
   },
@@ -56,9 +57,9 @@ export const NAV_LINKS: NavLink[] = [
     label: 'Markets',
     href: '/markets',
     children: [
-      { label: 'Saudi Arabia', href: '/markets/saudi-arabia' },
-      { label: 'United Arab Emirates', href: '/markets/united-arab-emirates' },
-      { label: 'GCC Markets', href: '/markets/gcc' },
+      { label: 'China', href: '/markets/china' },
+      { label: 'Southeast Asia', href: '/markets/southeast-asia' },
+      { label: 'Wider Asia', href: '/markets/wider-asia' },
     ],
   },
   {
@@ -206,7 +207,7 @@ export const EXTRA_STANDARDS: string[] = [
 export const FAQ_DATA = [
   {
     question: 'What products does Export Global Indonesia supply?',
-    answer: 'We supply two main product lines: Coconut Oil and Coconut Shell Charcoal Briquettes. Our architecture supports additional Indonesian products upon buyer request.',
+    answer: 'We supply three main product lines: Shallots (Bawang Merah), Palm Sugar (Gula Aren), and Coconut Shell Charcoal Briquettes. Our architecture supports additional Indonesian products upon buyer request.',
   },
   {
     question: 'What are the minimum order quantities (MOQ)?',
@@ -233,8 +234,8 @@ export const FAQ_DATA = [
     answer: 'We accept L/C (Letter of Credit) at Sight and T/T (Telegraphic Transfer). Payment terms can be discussed based on order size and buyer profile.',
   },
   {
-    question: 'Do you supply to Saudi Arabia and UAE?',
-    answer: 'Yes, Saudi Arabia and UAE are our primary target markets. We also serve other GCC countries including Qatar, Kuwait, Oman, and Bahrain.',
+    question: 'Do you supply to China and Asia?',
+    answer: 'Yes, China is our primary target market. We also serve Southeast Asia and wider Asia-Pacific including Japan, South Korea, Taiwan, Hong Kong, Singapore, Malaysia, Vietnam, Thailand and the Philippines.',
   },
 ]
 

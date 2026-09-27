@@ -42,8 +42,8 @@ const SOLUTIONS = [
     id: 'bulk-supply',
     icon: Package,
     title: 'Bulk Supply',
-    desc: 'Full-container-load (FCL) supply of coconut oil and charcoal briquettes with competitive FOB pricing.',
-    features: ['FCL quantities (18–20 MT per container)',       'FOB terms available', 'Lot-by-lot quality verification', 'Flexible shipping schedules'],
+    desc: 'Full-container-load (FCL) supply of shallots, palm sugar and charcoal briquettes with competitive FOB pricing.',
+    features: ['FCL quantities (subject to product & packaging)',       'FOB terms available', 'Lot-by-lot quality verification', 'Flexible shipping schedules'],
     cta: 'Request Bulk Quote',
   },
   {
@@ -87,7 +87,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 opacity-[0.08]"
           style={{
-            backgroundImage: `linear-gradient(135deg, rgba(8,18,13,0.92), rgba(8,18,13,0.72)), url('/CoconutOil.jpg')`,
+            backgroundImage: `linear-gradient(135deg, rgba(8,18,13,0.92), rgba(8,18,13,0.72)), url('/AerialContainerPort.webp')`,
             backgroundSize: 'cover',
             backgroundPosition: 'center',
           }}
@@ -142,7 +142,7 @@ export default function HomePage() {
             <div className="grid gap-4">
               <div className="relative rounded-[2rem] overflow-hidden shadow-2xl shadow-black/25 ring-1 ring-white/10 bg-slate-900">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent z-10" />
-                <img src="/cp8.jpg" alt="Indonesian export products" className="h-[28rem] w-full object-cover" loading="eager" />
+                <img src="/AerialContainerPort.webp" alt="Indonesian export products" className="h-[28rem] w-full object-cover" loading="eager" />
                 <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-7">
                   <div className="flex flex-wrap gap-2">
                     {PRODUCTS.map(p => (
@@ -155,14 +155,14 @@ export default function HomePage() {
               </div>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-sm">
-                  <img src="/CoconutShells.jpg" alt="Indonesian coconut shells" className="h-40 w-full object-cover" loading="lazy" />
+                  <img src="/inspection.webp" alt="Indonesian product quality check" className="h-40 w-full object-cover" loading="lazy" />
                   <div className="p-4">
                     <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Indonesian Origin</div>
-                    <div className="mt-1 font-bold text-white">Refinery-backed supply</div>
+                    <div className="mt-1 font-bold text-white">Supplier-backed supply</div>
                   </div>
                 </div>
                 <div className="rounded-2xl overflow-hidden ring-1 ring-white/10 bg-white/5 backdrop-blur-sm">
-                  <img src="/AerialContainerPort.jpg" alt="Export port" className="h-40 w-full object-cover" loading="lazy" />
+                  <img src="/AerialContainerPort.webp" alt="Export port" className="h-40 w-full object-cover" loading="lazy" />
                   <div className="p-4">
                     <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Export Ready</div>
                     <div className="mt-1 font-bold text-white">FOB Terms</div>
@@ -248,7 +248,7 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute top-4 left-4">
                     <span className={`inline-flex items-center rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider ring-1 ${
-                      p.categoryColor === 'gold' ? 'bg-gold-500/20 text-gold-100 ring-gold-400/30' :
+                      p.categoryColor === 'gold' ? 'bg-gold-500/20 text-white ring-gold-400/30' :
                       p.categoryColor === 'brand' ? 'bg-brand-500/20 text-brand-100 ring-brand-400/30' :
                       'bg-slate-500/20 text-slate-100 ring-slate-400/30'
                     } backdrop-blur-sm`}>
@@ -257,7 +257,7 @@ export default function HomePage() {
                   </div>
                   {p.privateLabelAvailable && (
                     <div className="absolute top-4 right-4">
-                      <span className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-sm ring-1 ring-white/20">
+                      <span className="inline-flex items-center rounded-full bg-black/40 px-3 py-1 text-[11px] font-semibold text-white backdrop-blur-sm ring-1 ring-black/20">
                         Private Label
                       </span>
                     </div>
@@ -401,8 +401,24 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-12 grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl">
-              <img src="/endproduct.jpg" alt="Private label manufacturing" className="h-80 w-full object-cover" loading="lazy" />
+            <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl bg-slate-900">
+              <img src="/BrownSurga3.webp" alt="Private label palm sugar retail packaging" className="h-80 w-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                <span className="inline-flex items-center rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-900 ring-1 ring-white/20">
+                  Your Brand Here
+                </span>
+                <span className="inline-flex items-center rounded-full bg-brand-600/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white ring-1 ring-white/20 backdrop-blur-sm">
+                  Private Label
+                </span>
+              </div>
+              <div className="absolute inset-x-0 bottom-0 p-5 flex items-center gap-4">
+                <img src="/CocoBriquette.webp" alt="Private label charcoal briquettes" className="h-16 w-16 sm:h-20 sm:w-20 rounded-xl object-cover ring-2 ring-white/80 shrink-0" loading="lazy" />
+                <div className="text-white">
+                  <div className="text-sm sm:text-base font-bold leading-tight">Palm Sugar & Charcoal Briquettes</div>
+                  <div className="mt-1 text-xs text-white/80">Custom pouch • Custom box • Custom label</div>
+                </div>
+              </div>
             </div>
             <div>
               <h3 className="text-2xl font-extrabold text-slate-900">How Private Label Works</h3>
@@ -638,10 +654,10 @@ export default function HomePage() {
               Target Markets
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Serving the Middle East &amp; Beyond
+              Serving China &amp; Wider Asia
             </h2>
             <p className="mt-4 text-lg text-slate-600">
-              Our primary export markets include Saudi Arabia, UAE, and the broader GCC region.
+              Our primary export markets include China, Southeast Asia, and wider Asia-Pacific.
             </p>
           </div>
           <div className="mt-12 grid md:grid-cols-3 gap-8">
@@ -716,7 +732,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl">
-              <img src="/refinery.jpg" alt="Export Global Indonesia operations" className="h-[28rem] w-full object-cover" loading="lazy" />
+              <img src="/refinery.webp" alt="Export Global Indonesia operations" className="h-[28rem] w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Indonesia-Based Export Partner</div>

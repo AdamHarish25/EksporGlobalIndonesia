@@ -41,7 +41,7 @@ const BENEFITS = [
   'Professional export coordination',
   'Documentation and logistics support',
   'Long-term partnership opportunities',
-  'Market exposure to Middle East & GCC',
+  'Market exposure to China & wider Asia',
 ]
 
 export default function ForSuppliersPage() {
@@ -186,7 +186,7 @@ export default function ForSuppliersPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Product *</label>
-                    <input name="product" value={form.product} onChange={handleChange} required placeholder="e.g., Coconut Oil, Charcoal Briquettes" className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.product ? 'border-red-400' : 'border-slate-200'}`} />
+                    <input name="product" value={form.product} onChange={handleChange} required placeholder="e.g., Shallots, Palm Sugar, Charcoal Briquettes" className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.product ? 'border-red-400' : 'border-slate-200'}`} />
                     {errors.product && <p className="mt-1 text-xs text-red-500">{errors.product}</p>}
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -201,7 +201,7 @@ export default function ForSuppliersPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Packaging Options</label>
-                    <input name="packaging" value={form.packaging} onChange={handleChange} placeholder="e.g., 1L PET, 18L Jerry Can, Flexitank" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
+                    <input name="packaging" value={form.packaging} onChange={handleChange} placeholder="e.g., Mesh bag, Retail pouch, Export carton" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Certifications</label>
@@ -209,7 +209,7 @@ export default function ForSuppliersPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Export Experience</label>
-                    <input name="exportExperience" value={form.exportExperience} onChange={handleChange} placeholder="e.g., Exported to Malaysia, India, Middle East" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
+                    <input name="exportExperience" value={form.exportExperience} onChange={handleChange} placeholder="e.g., Exported to China, Malaysia, Vietnam" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Website</label>

@@ -159,7 +159,7 @@ export default function RequestQuotePage() {
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-1">Country *</label>
-                        <input name="country" value={form.country} onChange={handleChange} required placeholder="e.g., Saudi Arabia, UAE" className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.country ? 'border-red-400' : 'border-slate-200'}`} />
+                        <input name="country" value={form.country} onChange={handleChange} required placeholder="e.g., China, Singapore" className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.country ? 'border-red-400' : 'border-slate-200'}`} />
                         {errors.country && <p className="mt-1 text-xs text-red-500">{errors.country}</p>}
                       </div>
                     </div>
@@ -176,7 +176,7 @@ export default function RequestQuotePage() {
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-1">Phone</label>
-                        <input name="phone" value={form.phone} onChange={handleChange} placeholder="+966 ..." className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
+                        <input name="phone" value={form.phone} onChange={handleChange} placeholder="+86 ..." className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
                       </div>
                     </div>
                   </div>
@@ -226,17 +226,17 @@ export default function RequestQuotePage() {
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-1">Packaging</label>
-                        <input name="packaging" value={form.packaging} onChange={handleChange} placeholder="e.g., 1L PET, Bulk" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
+                        <input name="packaging" value={form.packaging} onChange={handleChange} placeholder="e.g., Retail pouch, Bulk sack, Export carton" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-1">Destination Country</label>
-                        <input name="destinationCountry" value={form.destinationCountry} onChange={handleChange} placeholder="e.g., Saudi Arabia" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
+                        <input name="destinationCountry" value={form.destinationCountry} onChange={handleChange} placeholder="e.g., China" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
                       </div>
                       <div>
                         <label className="block text-sm font-semibold text-slate-700 mb-1">Destination Port</label>
-                        <input name="destinationPort" value={form.destinationPort} onChange={handleChange} placeholder="e.g., Jeddah Islamic Port" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
+                        <input name="destinationPort" value={form.destinationPort} onChange={handleChange} placeholder="e.g., Shanghai Port" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
                       </div>
                     </div>
                     <div className="grid sm:grid-cols-3 gap-4">

@@ -12,10 +12,10 @@ export default function MarketsPage() {
               Target Markets
             </span>
             <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-              Serving the Middle East &amp; Beyond
+              Serving China &amp; Wider Asia
             </h1>
             <p className="mt-4 text-lg text-slate-300">
-              Our primary export markets include Saudi Arabia, UAE, and the broader GCC region.
+              Our primary export markets include China, Southeast Asia, and wider Asia-Pacific.
             </p>
           </div>
         </div>

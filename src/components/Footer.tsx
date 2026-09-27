@@ -34,7 +34,8 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Products</h4>
             <ul className="space-y-3">
-              <li><Link to="/products/coconut-oil" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">Coconut Oil</Link></li>
+              <li><Link to="/products/shallots" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">Shallots (Bawang Merah)</Link></li>
+              <li><Link to="/products/palm-sugar" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">Palm Sugar (Gula Aren)</Link></li>
               <li><Link to="/products/coconut-shell-charcoal-briquettes" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">Coconut Shell Charcoal Briquettes</Link></li>
             </ul>
           </div>
@@ -55,9 +56,9 @@ export default function Footer() {
           <div>
             <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Markets</h4>
             <ul className="space-y-3">
-              <li><Link to="/markets/saudi-arabia" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🇸🇦 Saudi Arabia</Link></li>
-              <li><Link to="/markets/united-arab-emirates" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🇦🇪 United Arab Emirates</Link></li>
-              <li><Link to="/markets/gcc" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🌐 GCC Markets</Link></li>
+              <li><Link to="/markets/china" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🇨🇳 China</Link></li>
+              <li><Link to="/markets/southeast-asia" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🌏 Southeast Asia</Link></li>
+              <li><Link to="/markets/wider-asia" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🌏 Wider Asia</Link></li>
             </ul>
             <div className="mt-6">
               <Link

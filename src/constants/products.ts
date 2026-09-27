@@ -6,16 +6,31 @@ import {
 import type { Product, ProductSpecification } from '@/types'
 
 /* -------------------------------------------------------------------------- */
-/*                        COCONUT OIL SPECIFICATIONS                          */
+/*                          SHALLOTS (BAWANG MERAH) SPECS                     */
+/*  Target specs — final values subject to buyer spec, supplier capability    */
+/*  and lot laboratory testing.                                               */
 /* -------------------------------------------------------------------------- */
 
-const coconutOilSpecs: ProductSpecification[] = [
-  { param: 'Free Fatty Acid (FFA)', value: { value: 'Available upon request', status: 'TARGET' } },
-  { param: 'Moisture & Volatile Matter', value: { value: 'Available upon request', status: 'TARGET' } },
-  { param: 'Color (Lovibond)', value: { value: 'Available upon request', status: 'TARGET' } },
-  { param: 'Iodine Value', value: { value: 'Available upon request', status: 'TARGET' } },
-  { param: 'Saponification Value', value: { value: 'Available upon request', status: 'TARGET' } },
-  { param: 'Peroxide Value', value: { value: 'Available upon request', status: 'TARGET' } },
+const shallotSpecs: ProductSpecification[] = [
+  { param: 'Variety', value: { value: 'Indonesian Red Shallot (Bawang Merah)', status: 'TARGET' } },
+  { param: 'Size / Diameter', value: { value: 'Graded S/M/L, typically 2–4 cm', status: 'TARGET' } },
+  { param: 'Condition', value: { value: 'Fresh, clean, dry, sprout-free', status: 'TARGET' } },
+  { param: 'Moisture', value: { value: 'Available upon request', status: 'TARGET' } },
+  { param: 'Shelf Life', value: { value: 'Available upon request', status: 'TARGET' } },
+  { param: 'Purity / Sorting', value: { value: 'Sorted, foreign matter minimized', status: 'TARGET' } },
+]
+
+/* -------------------------------------------------------------------------- */
+/*                          PALM SUGAR (GULA AREN) SPECS                      */
+/* -------------------------------------------------------------------------- */
+
+const palmSugarSpecs: ProductSpecification[] = [
+  { param: 'Raw Material', value: { value: 'Aren palm (Arenga pinnata) sap', status: 'TARGET' } },
+  { param: 'Form', value: { value: 'Granulated / Block / Liquid (per buyer spec)', status: 'TARGET' } },
+  { param: 'Moisture', value: { value: 'Available upon request', status: 'TARGET' } },
+  { param: 'Sucrose Content', value: { value: 'Available upon request', status: 'TARGET' } },
+  { param: 'Color & Aroma', value: { value: 'Typical caramel-brown, characteristic aren aroma', status: 'TARGET' } },
+  { param: 'Shelf Life', value: { value: 'Available upon request', status: 'TARGET' } },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -42,25 +57,25 @@ const charcoalSpecs: ProductSpecification[] = [
 
 export const PRODUCTS: Product[] = [
   {
-    id: 'coconut-oil',
-    name: 'Coconut Oil',
-    slug: 'coconut-oil',
-    category: 'Food & Edible Oil',
+    id: 'shallots',
+    name: 'Shallots (Bawang Merah)',
+    slug: 'shallots',
+    category: 'Fresh Produce',
     categoryColor: 'brand',
-    shortDescription: 'Indonesian coconut oil for food, commercial and private-label applications.',
-    description: 'Export Global Indonesia offers Indonesian coconut oil suitable for food, commercial, and private-label applications. Available types include Refined Coconut Oil and Virgin Coconut Oil, with buyer-specific specifications accommodated upon request.',
+    shortDescription: 'Indonesian red shallots for wholesale, retail, food manufacturing and distribution.',
+    description: 'Export Global Indonesia offers Indonesian red shallots (bawang merah) for wholesale, retail, food manufacturing, and distribution applications. Grading, packaging, and quantity can be discussed according to buyer requirements and supplier availability.',
     applications: [
+      'Wholesale Markets',
+      'Retail & Supermarkets',
       'Food Manufacturing',
-      'Baking & Confectionery',
       'Food Service / HoReCa',
-      'Cosmetics & Personal Care',
-      'Private Label Retail',
+      'Distribution & Re-export',
     ],
-    specifications: coconutOilSpecs,
+    specifications: shallotSpecs,
     packaging: [
-      { icon: Droplet, size: '500ml / 1L PET Bottle', pack: 'Retail Packaging', detail: 'Available upon request' },
-      { icon: Package, size: '5L / 10L Jerry Can', pack: 'Food-grade Container', detail: 'Commercial use' },
-      { icon: FlaskConical, size: 'Flexitank / ISO Tank', pack: '20ft FCL Bulk', detail: 'Subject to supplier confirmation' },
+      { icon: Package, size: '5kg / 10kg Mesh Bag', pack: 'Ventilated Bag', detail: 'Wholesale / market use' },
+      { icon: Package, size: '25kg / 50kg Sack', pack: 'Jute / Mesh Sack', detail: 'Bulk shipment' },
+      { icon: Package, size: 'Carton Box', pack: 'Buyer Specification', detail: 'Retail / export grade' },
     ],
     moq: 'Available upon request',
     supplyCapacity: 'Subject to supplier confirmation',
@@ -71,14 +86,53 @@ export const PRODUCTS: Product[] = [
       'Commercial Invoice',
       'Packing List',
       'Bill of Lading (B/L)',
-      'Certificate of Origin (COO / Form E)',
+      'Certificate of Origin (COO)',
+      'Certificate of Analysis (CoA, if required)',
+      'Phytosanitary Certificate (if required)',
+    ],
+    certifications: ['CoA'],
+    privateLabelAvailable: false,
+    image: '/Shallots1.webp',
+    gallery: ['/Shallots1.webp', '/shallots2.webp'],
+  },
+  {
+    id: 'palm-sugar',
+    name: 'Palm Sugar (Gula Aren)',
+    slug: 'palm-sugar',
+    category: 'Natural Sweetener',
+    categoryColor: 'gold',
+    shortDescription: 'Indonesian aren palm sugar for food, beverage, retail and private-label applications.',
+    description: 'Export Global Indonesia supplies Indonesian palm sugar (gula aren) derived from aren palm sap, suitable for food, beverage, retail, and private-label applications. Form, packaging, and specifications can be discussed according to buyer requirements.',
+    applications: [
+      'Food & Beverage Manufacturing',
+      'Baking & Confectionery',
+      'Food Service / HoReCa',
+      'Retail & Supermarkets',
+      'Private Label Retail',
+    ],
+    specifications: palmSugarSpecs,
+    packaging: [
+      { icon: Droplet, size: '500g / 1kg Pouch', pack: 'Retail Packaging', detail: 'Available upon request' },
+      { icon: Package, size: '25kg / 50kg Sack', pack: 'Food-grade Sack', detail: 'Bulk / manufacturing use' },
+      { icon: FlaskConical, size: 'Custom Private Label', pack: 'Buyer Specification', detail: 'Private label available' },
+    ],
+    moq: 'Available upon request',
+    supplyCapacity: 'Subject to supplier confirmation',
+    origin: 'Indonesia',
+    incoterms: ['FOB'],
+    destinationMarkets: ['Global'],
+    documentation: [
+      'Commercial Invoice',
+      'Packing List',
+      'Bill of Lading (B/L)',
+      'Certificate of Origin (COO)',
       'Certificate of Analysis (CoA)',
       'Halal Certificate',
     ],
     certifications: ['CoA', 'Halal'],
     privateLabelAvailable: true,
-    image: '/CoconutOil.jpg',
-    gallery: ['/CoconutOil.jpg', '/CoconutShells.jpg'],
+    image: '/BrownSurga3.webp',
+    gallery: ['/BrownSurga3.webp', '/BrownSurga2.webp', '/BrownSurga.webp'],
   },
   {
     id: 'coconut-shell-charcoal-briquettes',
@@ -87,7 +141,7 @@ export const PRODUCTS: Product[] = [
     category: 'Shisha / BBQ / Hospitality',
     categoryColor: 'slate',
     shortDescription: 'Indonesian coconut shell charcoal briquettes for shisha, hookah, BBQ and hospitality applications.',
-    description: 'Export Global Indonesia supplies Indonesian coconut shell charcoal briquettes designed for shisha, hookah, BBQ, and hospitality applications. Our briquettes are manufactured from premium coconut shells with target specifications aligned to UAE and Saudi market requirements.',
+    description: 'Export Global Indonesia supplies Indonesian coconut shell charcoal briquettes designed for shisha, hookah, BBQ, and hospitality applications. Our briquettes are manufactured from premium coconut shells with target specifications aligned to China and wider Asian market requirements.',
     applications: [
       'Shisha / Hookah',
       'BBQ & Grilling',
@@ -106,7 +160,7 @@ export const PRODUCTS: Product[] = [
     supplyCapacity: 'Subject to supplier confirmation',
     origin: 'Indonesia',
     incoterms: ['FOB'],
-    destinationMarkets: ['Middle East', 'GCC', 'Asia Pacific'],
+    destinationMarkets: ['China', 'Southeast Asia', 'Asia-Pacific'],
     documentation: [
       'Commercial Invoice',
       'Packing List',
@@ -117,8 +171,8 @@ export const PRODUCTS: Product[] = [
     ],
     certifications: ['CoA'],
     privateLabelAvailable: true,
-    image: '/CocoBriquette.jpg',
-    gallery: ['/CocoBriquette.jpg', '/CoconutShells.jpg'],
+    image: '/CocoBriquette.webp',
+    gallery: ['/CocoBriquette.webp', '/CoconutShells.webp'],
   },
 ]
 

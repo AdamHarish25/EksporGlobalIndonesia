@@ -9,14 +9,14 @@ const SOLUTIONS = [
     id: 'bulk-supply',
     icon: Package,
     title: 'Bulk Supply',
-    desc: 'Full-container-load (FCL) supply of coconut oil and charcoal briquettes with competitive FOB pricing.',
+    desc: 'Full-container-load (FCL) supply of shallots, palm sugar and charcoal briquettes with competitive FOB pricing.',
     features: [
-      'FCL quantities (18–20 MT per container)',
+      'FCL quantities (subject to product & packaging)',
       'FOB terms available',
       'Lot-by-lot quality verification',
       'Flexible shipping schedules',
-      'Certificate of Analysis (CoA) included',
-      'Halal certification included',
+      'Certificate of Analysis (CoA) as applicable',
+      'Export documentation support',
     ],
     cta: 'Request Bulk Quote',
   },
@@ -30,7 +30,7 @@ const SOLUTIONS = [
       'Retail-ready packaging',
       'Small & large batch runs',
       'Multiple format options',
-      'Arabic / English labeling available',
+      'Chinese / English labeling available',
       'End-to-end export coordination',
     ],
     cta: 'Discuss Private Label',
@@ -110,7 +110,7 @@ export default function SolutionsPage() {
               </div>
               <h2 className="mt-6 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">Bulk Supply</h2>
               <p className="mt-4 text-lg text-slate-600 leading-relaxed">
-                Full-container-load (FCL) supply of coconut oil and charcoal briquettes with competitive FOB pricing. Ideal for importers, distributors, and large-scale buyers.
+                Full-container-load (FCL) supply of shallots, palm sugar and charcoal briquettes with competitive FOB pricing. Ideal for importers, distributors, and large-scale buyers.
               </p>
               <ul className="mt-8 space-y-4">
                 {SOLUTIONS[0].features.map(f => (
@@ -130,7 +130,7 @@ export default function SolutionsPage() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl">
-              <img src="/TerminalContainerAerial.jpg" alt="Bulk supply shipping" className="h-80 w-full object-cover" loading="lazy" />
+              <img src="/TerminalContainerAerial.webp" alt="Bulk supply shipping" className="h-80 w-full object-cover" loading="lazy" />
             </div>
           </div>
         </div>
@@ -140,8 +140,24 @@ export default function SolutionsPage() {
       <section id="private-label" className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl order-2 lg:order-1">
-              <img src="/endproduct.jpg" alt="Private label manufacturing" className="h-80 w-full object-cover" loading="lazy" />
+            <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl order-2 lg:order-1 bg-slate-900">
+              <img src="/BrownSurga3.webp" alt="Private label palm sugar retail packaging" className="h-80 w-full object-cover" loading="lazy" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+              <div className="absolute top-4 left-4 flex flex-wrap gap-2">
+                <span className="inline-flex items-center rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-900 ring-1 ring-white/20">
+                  Your Brand Here
+                </span>
+                <span className="inline-flex items-center rounded-full bg-brand-600/90 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white ring-1 ring-white/20 backdrop-blur-sm">
+                  Private Label
+                </span>
+              </div>
+              <div className="absolute inset-x-0 bottom-0 p-5 flex items-center gap-4">
+                <img src="/CocoBriquette.webp" alt="Private label charcoal briquettes" className="h-16 w-16 sm:h-20 sm:w-20 rounded-xl object-cover ring-2 ring-white/80 shrink-0" loading="lazy" />
+                <div className="text-white">
+                  <div className="text-sm sm:text-base font-bold leading-tight">Palm Sugar & Charcoal Briquettes</div>
+                  <div className="mt-1 text-xs text-white/80">Custom pouch • Custom box • Custom label</div>
+                </div>
+              </div>
             </div>
             <div className="order-1 lg:order-2">
               <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/20">

@@ -12,7 +12,7 @@ export default function BrandLogo({ className = '', size = 38, line = '', backgr
   return (
     <div className="flex flex-col gap-2">
       <img
-        src={background === true ? './logo-White.png' : './logo-green.png'}
+        src={background === true ? '/logo-White.png' : '/logo-green.png'}
         alt="EGI"
         className={`${rounded ? 'rounded-xl' : ''} ${className}`}
       />
