@@ -2,7 +2,7 @@ import { useState } from 'react'
 import {
   Factory, Send, CheckCircle2,
 } from 'lucide-react'
-import { LINKS } from '@/constants'
+import { CONTACT, LINKS } from '@/constants'
 
 interface SupplierFormState {
   companyName: string
@@ -90,7 +90,7 @@ export default function ForSuppliersPage() {
     ].join('\n')
 
     window.open(
-      `mailto:adam.eksporglobalindonesia@gmail.com?subject=${encodeURIComponent(`[Supplier Registration] ${form.companyName}`)}&body=${encodeURIComponent(body)}`,
+      `mailto:${CONTACT.email}?subject=${encodeURIComponent(`[Supplier Registration] ${form.companyName}`)}&body=${encodeURIComponent(body)}`,
       '_blank'
     )
     setSubmitted(true)
@@ -106,7 +106,7 @@ export default function ForSuppliersPage() {
               For Suppliers
             </span>
             <h1 className="mt-4 text-4xl sm:text-5xl font-extrabold tracking-tight">
-              Partner with Export Global Indonesia
+              Partner with Harvestora Global Indonesia
             </h1>
             <p className="mt-4 text-lg text-slate-300">
               Expand your market reach through our international B2B buyer network.

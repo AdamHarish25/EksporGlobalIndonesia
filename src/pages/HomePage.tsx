@@ -28,7 +28,6 @@ import {
 } from 'lucide-react'
 import { BRAND, CONTACT, LINKS, TRUST_METRICS, WHY_CARDS, CERT_CARDS, CERT_PALETTE, FAQ_DATA, HOW_IT_WORKS_STEPS, EXPORT_DOCUMENTS } from '@/constants'
 import { PRODUCTS } from '@/constants/products'
-import { MARKETS } from '@/constants/markets'
 
 const BUYER_TYPES = [
   { icon: ShoppingCart, title: 'Importers', desc: 'Direct supply for import businesses seeking reliable Indonesian sourcing partners.' },
@@ -540,7 +539,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center">
             <span className="inline-block rounded-full bg-gold-500/10 text-gold-600 px-3.5 py-1 text-xs font-bold uppercase tracking-wider ring-1 ring-gold-500/20">
-              Why Export Global Indonesia
+              Why Harvestora Global Indonesia
             </span>
             <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
               Built for Long-Term B2B Partnerships
@@ -646,46 +645,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ────────────────── TARGET MARKETS ────────────────── */}
-      <section id="markets" className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block rounded-full bg-brand-500/10 text-brand-700 px-3.5 py-1 text-xs font-bold uppercase tracking-wider ring-1 ring-brand-500/20">
-              Target Markets
-            </span>
-            <h2 className="mt-4 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900">
-              Serving China &amp; Wider Asia
-            </h2>
-            <p className="mt-4 text-lg text-slate-600">
-              Our primary export markets include China, Southeast Asia, and wider Asia-Pacific.
-            </p>
-          </div>
-          <div className="mt-12 grid md:grid-cols-3 gap-8">
-            {MARKETS.map(m => (
-              <Link
-                key={m.id}
-                to={`/markets/${m.slug}`}
-                className="group rounded-2xl bg-white p-6 lg:p-8 ring-1 ring-slate-200 hover:ring-brand-500 hover:shadow-xl hover:shadow-brand-500/5 transition-all"
-              >
-                <div className="text-4xl mb-4">{m.flag}</div>
-                <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-brand-700 transition-colors">{m.name}</h3>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed line-clamp-3">{m.description}</p>
-                <div className="mt-4 flex flex-wrap gap-2">
-                  {m.buyerTypes.slice(0, 3).map(bt => (
-                    <span key={bt} className="inline-flex items-center rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-semibold text-slate-600">
-                      {bt}
-                    </span>
-                  ))}
-                </div>
-                <div className="mt-5 flex items-center gap-2 text-sm font-semibold text-brand-600 group-hover:text-brand-700">
-                  View Market Details <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ──────────────────── ABOUT US ──────────────────── */}
       <section id="about" className="py-14 sm:py-20 lg:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -732,7 +691,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl">
-              <img src="/refinery.webp" alt="Export Global Indonesia operations" className="h-[28rem] w-full object-cover" loading="lazy" />
+              <img src="/refinery.webp" alt="Harvestora Global Indonesia operations" className="h-[28rem] w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-6 text-white">
                 <div className="text-xs font-bold uppercase tracking-[0.18em] text-brand-200">Indonesia-Based Export Partner</div>

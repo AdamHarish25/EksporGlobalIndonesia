@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown, FileText } from 'lucide-react'
 import { NAV_LINKS, BRAND } from '@/constants'
 import BrandLogo from '@/components/BrandLogo'
+import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Navbar() {
   const [open, setOpen] = React.useState(false)
@@ -71,6 +72,7 @@ export default function Navbar() {
                 )}
               </div>
             ))}
+            <LanguageSwitcher />
             <Link
               to="/request-a-quote"
               className="inline-flex items-center gap-2 rounded-lg bg-brand-600 hover:bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors ml-2"
@@ -137,6 +139,10 @@ export default function Navbar() {
                 )}
               </div>
             ))}
+            <div className="mt-2 flex items-center justify-between border-t border-slate-100 pt-3">
+              <span className="px-3 text-sm font-medium text-slate-500">Language</span>
+              <LanguageSwitcher />
+            </div>
             <Link
               to="/request-a-quote"
               onClick={close}

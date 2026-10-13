@@ -1,8 +1,77 @@
 # Changelog
 
-All notable changes to the Export Global Indonesia website will be documented in this file.
+All notable changes to the Harvestora Global Indonesia website will be documented in this file.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
+
+---
+
+## [4.0.0] - 2026-10-13
+
+### Added
+
+#### Solutions — Route Terpisah per Halaman (Pengganti Hash Anchor)
+- Hapus hash routing `/solutions#bulk-supply`, `#private-label`, `#custom-sourcing`
+- Route baru: `/solutions/bulk-supply`, `/solutions/private-label`, `/solutions/custom-sourcing` via `/solutions/:slug`
+- `src/pages/SolutionsPage.tsx` sekarang hanya overview (3 kartu link), tidak lagi menggabung 3 solution dalam 1 halaman
+- `src/pages/SolutionDetailPage.tsx` (baru): tiap solution punya URL, hero, konten sendiri; form hanya di custom-sourcing; slug salah redirect ke `/solutions`
+- Data slide/carousel terpusat di `src/constants/solutions.ts` (`SOLUTIONS`, `getSolutionBySlug()`)
+- Update `NAV_LINKS` children Solutions ke route asli
+
+#### Loading + Scroll per Pindah Halaman
+- Semua page di `src/App.tsx` jadi `React.lazy` + `Suspense fallback=<PageLoader/>` — tiap ganti route memicu loading + remount, bukan pindah anchor
+- `src/components/ScrollToTop.tsx` (baru): scroll ke atas setiap `pathname` berubah
+- `src/components/PageLoader.tsx` (baru): spinner "Loading page..."
+
+#### Netlify SPA Fallback
+- `public/_redirects` (baru): `/* /index.html 200` — refresh/akses langsung `/products`, `/solutions/xxx`, dll. tidak lagi 404 di Netlify
+
+#### Language Switcher (Third-Party Google Translate)
+- `src/components/LanguageSwitcher.tsx` (baru): dropdown custom 4 bahasa — English (US), Bahasa Indonesia, Bahasa Arab, Mandarin
+- Engine Google Translate dimuat sekali; UI bawaan disembunyikan via `src/index.css`
+- Pilih bahasa → set cookie `googtrans` (1 tahun) → reload; pilihan tersimpan
+- Terpasang di Navbar desktop (samping CTA) dan mobile menu (bagian Language); berlaku semua halaman karena Navbar persistent
+
+#### Bulk Supply — Carousel Tipe Container
+- `src/components/ImageCarousel.tsx` (baru): panah, dots, counter, autoplay 6 detik (pause saat hover)
+- 3 slide: Standard Dry Container (briket arang → China/Saudi), Reefer Cold Storage (makanan beku, mis. salmon → Jepang), Ventilated/Food-Grade (bawang merah & gula aren)
+- Gambar memakai stok lokal (`TerminalContainerAerial`, `AerialContainerPort`, `inspection`); ganti foto cukup edit data `carousel`
+
+#### Terjemahan Carousel Mengikuti Bahasa Terpilih
+- Copy tiap slide tersedia dalam 4 bahasa (EN/ID/AR/ZH) di data `carousel`
+- `src/utils/siteLang.ts` (baru): `getSiteLang()` baca bahasa aktif dari cookie `googtrans`
+- Carousel render copy sesuai bahasa aktif + `notranslate` (Google tidak memproses ulang / balapan dengan autoplay); caption Arab otomatis RTL
+- Counter `1/3` juga di-remount per slide + `notranslate` (sebelumnya macet karena tag `<font>` Google)
+
+#### Translate Penuh saat Pindah Halaman
+- `ScrollToTop`: selama bahasa terjemahan aktif, tiap pindah route full reload sekali (guard `sessionStorage` anti-loop) — Google memproses tiap halaman dari awal, konten suntikan router tidak lagi luput/stuck Inggris
+- Mode Inggris default tetap SPA cepat tanpa reload ekstra
+
+---
+
+### Changed
+
+#### Rebrand: Export Global Indonesia → Harvestora Global Indonesia
+- `BRAND.name` → `Harvestora Global Indonesia`; singkatan `EGI` → `HGI` (termasuk `alt` logo)
+- Email: `adam.eksporglobalindonesia@gmail.com` → `adam.harvestoraglobalindonesia@gmail.com` → `info.harvestoraglobalindonesia@gmail.com` (terpusat di `CONTACT.email`; `SolutionDetailPage` & `ForSuppliersPage` yang tadinya hardcode mailto sekarang pakai `CONTACT.email`)
+- Slogan `BRAND.tagline`: `B2B Indonesian Sourcing & Export Partner` → `PT. Harvestora Global Indonesia` (ikut di teks bawah logo Navbar/Footer, subtitle About, paragraf Home); title browser menyesuaikan; `heroBadge` tidak diubah
+- Logo baru: `BrandLogo.tsx` pakai `/logoGreen-bigTransparent.png` (background terang) dan `/logoWhite-bigTransparent.png` (background gelap); `favicon.svg` generik dipertahankan
+- `package.json` / `package-lock.json`: `egi-landing-page` → `harvestora-global-indonesia`
+- `index.html`: title + meta description; teks produk (3 deskripsi), About, Home, legal pages (Privacy/Terms/Cookie) disesuaikan
+
+#### Fix: `categoryColor` Palm Sugar
+- `src/constants/products.ts`: nilai tidak valid (`'white'`, lalu `''`) dikembalikan ke `'gold'` sesuai tipe `'brand' | 'gold' | 'slate'` — build sempat gagal 2x karena ini
+
+---
+
+### Removed
+
+#### Markets (Belum Perlu)
+- Hapus nav `Markets` + submenu (China, Southeast Asia, Wider Asia) dari `NAV_LINKS`
+- Hapus route `/markets` dan `/markets/:slug` dari `App.tsx`
+- Hapus section `Target Markets` dari `HomePage.tsx`
+- Kolom Markets di footer diganti kolom `Get Started` (teks + tombol Request a Quote)
+- Hapus file: `src/pages/MarketsPage.tsx`, `src/pages/MarketDetailPage.tsx`, `src/constants/markets.ts`; hapus interface `Market` di `src/types/index.ts`
 
 ---
 
@@ -267,6 +336,7 @@ Transformasi besar-besaran dari single-product landing page menjadi platform B2B
 
 | Version | Description |
 |---|---|
+| **4.0.0** | Rebrand Harvestora, routing per-halaman + Netlify fallback, translator 4 bahasa, carousel bulk supply, hapus Markets |
 | **3.1.0** | Remove palm cooking oil, add footer credit, product input combobox |
 | **3.0.0** | Grand revision: multi-product, multi-page B2B sourcing platform |
 | **2.0.0** | Visual refinements and bug fixes |

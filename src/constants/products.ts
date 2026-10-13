@@ -63,7 +63,7 @@ export const PRODUCTS: Product[] = [
     category: 'Fresh Produce',
     categoryColor: 'brand',
     shortDescription: 'Indonesian red shallots for wholesale, retail, food manufacturing and distribution.',
-    description: 'Export Global Indonesia offers Indonesian red shallots (bawang merah) for wholesale, retail, food manufacturing, and distribution applications. Grading, packaging, and quantity can be discussed according to buyer requirements and supplier availability.',
+    description: 'Harvestora Global Indonesia offers Indonesian red shallots (bawang merah) for wholesale, retail, food manufacturing, and distribution applications. Grading, packaging, and quantity can be discussed according to buyer requirements and supplier availability.',
     applications: [
       'Wholesale Markets',
       'Retail & Supermarkets',
@@ -100,9 +100,9 @@ export const PRODUCTS: Product[] = [
     name: 'Palm Sugar (Gula Aren)',
     slug: 'palm-sugar',
     category: 'Natural Sweetener',
-    categoryColor: 'gold',
+    categoryColor: 'brand',
     shortDescription: 'Indonesian aren palm sugar for food, beverage, retail and private-label applications.',
-    description: 'Export Global Indonesia supplies Indonesian palm sugar (gula aren) derived from aren palm sap, suitable for food, beverage, retail, and private-label applications. Form, packaging, and specifications can be discussed according to buyer requirements.',
+    description: 'Harvestora Global Indonesia supplies Indonesian palm sugar (gula aren) derived from aren palm sap, suitable for food, beverage, retail, and private-label applications. Form, packaging, and specifications can be discussed according to buyer requirements.',
     applications: [
       'Food & Beverage Manufacturing',
       'Baking & Confectionery',
@@ -141,7 +141,7 @@ export const PRODUCTS: Product[] = [
     category: 'Shisha / BBQ / Hospitality',
     categoryColor: 'slate',
     shortDescription: 'Indonesian coconut shell charcoal briquettes for shisha, hookah, BBQ and hospitality applications.',
-    description: 'Export Global Indonesia supplies Indonesian coconut shell charcoal briquettes designed for shisha, hookah, BBQ, and hospitality applications. Our briquettes are manufactured from premium coconut shells with target specifications aligned to China and wider Asian market requirements.',
+    description: 'Harvestora Global Indonesia supplies Indonesian coconut shell charcoal briquettes designed for shisha, hookah, BBQ, and hospitality applications. Our briquettes are manufactured from premium coconut shells with target specifications aligned to China and wider Asian market requirements.',
     applications: [
       'Shisha / Hookah',
       'BBQ & Grilling',

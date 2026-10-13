@@ -36,7 +36,7 @@ export default function CookiePolicyPage() {
 
               <h3 className="text-base font-bold text-slate-900 mt-6">2. How We Use Cookies</h3>
               <p>
-                Export Global Indonesia uses cookies to improve your browsing experience, analyze website traffic, and
+                Harvestora Global Indonesia uses cookies to improve your browsing experience, analyze website traffic, and
                 understand where our visitors are coming from. We may also use cookies to remember your preferences
                 and provide personalized content.
               </p>
@@ -69,7 +69,7 @@ export default function CookiePolicyPage() {
               <h3 className="text-base font-bold text-slate-900 mt-6">7. Contact Us</h3>
               <p>
                 If you have questions about our Cookie Policy, please contact{' '}
-                <span className="font-semibold text-slate-900">adam.eksporglobalindonesia@gmail.com</span>.
+                <span className="font-semibold text-slate-900">info.harvestoraglobalindonesia@gmail.com</span>.
               </p>
             </div>
           </div>

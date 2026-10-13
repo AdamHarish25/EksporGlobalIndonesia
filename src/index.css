@@ -11,3 +11,30 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* ── Google Translate: pakai engine-nya saja, UI bawaan disembunyikan ── */
+#google_translate_element {
+  display: none !important;
+}
+.goog-te-banner-frame,
+.goog-te-balloon-frame {
+  display: none !important;
+}
+.skiptranslate > iframe {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}
+.goog-te-gadget {
+  font-size: 0 !important;
+}
+.goog-te-gadget span,
+.goog-logo-link,
+img.goog-te-gadget-icon {
+  display: none !important;
+}
+.goog-text-highlight {
+  background: none !important;
+  box-shadow: none !important;
+}

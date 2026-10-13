@@ -30,7 +30,7 @@ export default function PrivacyPolicyPage() {
 
               <h3 className="text-base font-bold text-slate-900 mt-6">1. Information We Collect</h3>
               <p>
-                Export Global Indonesia collects information you provide directly, such as when you fill out a contact form,
+                Harvestora Global Indonesia collects information you provide directly, such as when you fill out a contact form,
                 request a quote, or communicate with us. This may include your name, company name, email address, phone number,
                 and business requirements.
               </p>
@@ -56,7 +56,7 @@ export default function PrivacyPolicyPage() {
               <h3 className="text-base font-bold text-slate-900 mt-6">5. Contact Us</h3>
               <p>
                 If you have questions about this Privacy Policy, please contact us at{' '}
-                <span className="font-semibold text-slate-900">adam.eksporglobalindonesia@gmail.com</span>.
+                <span className="font-semibold text-slate-900">info.harvestoraglobalindonesia@gmail.com</span>.
               </p>
             </div>
           </div>

@@ -52,15 +52,13 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Markets & CTA */}
+          {/* Get Started */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Markets</h4>
-            <ul className="space-y-3">
-              <li><Link to="/markets/china" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🇨🇳 China</Link></li>
-              <li><Link to="/markets/southeast-asia" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🌏 Southeast Asia</Link></li>
-              <li><Link to="/markets/wider-asia" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">🌏 Wider Asia</Link></li>
-            </ul>
-            <div className="mt-6">
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Get Started</h4>
+            <p className="text-sm text-slate-400 leading-relaxed">
+              Tell us your requirements and receive a detailed quotation.
+            </p>
+            <div className="mt-5">
               <Link
                 to="/request-a-quote"
                 className="inline-flex items-center gap-2 rounded-lg bg-brand-600 hover:bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors"
@@ -76,7 +74,7 @@ export default function Footer() {
       <div className="border-t border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500">
           <div>© {new Date().getFullYear()} {BRAND.name}. All rights reserved.</div>
-          <div>Powered by <a href={"https://websitejoki.my.id"}>WebsiteJokiID</a> Engine</div>
+          <div>Powered by <a target='_blank' href={"https://websitejoki.my.id"}>PT Harvestora Global Indonesia</a></div>
           <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-1">
             <Link to="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
             <Link to="/terms-and-conditions" className="hover:text-slate-300 transition-colors">Terms & Conditions</Link>

@@ -30,7 +30,7 @@ export default function TermsPage() {
 
               <h3 className="text-base font-bold text-slate-900 mt-6">1. General</h3>
               <p>
-                These terms govern your use of Export Global Indonesia's services and website. By engaging with our
+                These terms govern your use of Harvestora Global Indonesia's services and website. By engaging with our
                 services, you agree to these terms and conditions.
               </p>
 
@@ -62,14 +62,14 @@ export default function TermsPage() {
 
               <h3 className="text-base font-bold text-slate-900 mt-6">6. Limitation of Liability</h3>
               <p>
-                Export Global Indonesia acts as a sourcing and export coordination partner. Liability is limited to
+                Harvestora Global Indonesia acts as a sourcing and export coordination partner. Liability is limited to
                 the terms specified in individual purchase contracts.
               </p>
 
               <h3 className="text-base font-bold text-slate-900 mt-6">7. Contact</h3>
               <p>
                 For questions regarding these terms, please contact{' '}
-                <span className="font-semibold text-slate-900">adam.eksporglobalindonesia@gmail.com</span>.
+                <span className="font-semibold text-slate-900">info.harvestoraglobalindonesia@gmail.com</span>.
               </p>
             </div>
           </div>

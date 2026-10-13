@@ -70,24 +70,6 @@ export interface Product {
 }
 
 /* -------------------------------------------------------------------------- */
-/*                                    MARKETS                                 */
-/* -------------------------------------------------------------------------- */
-
-export interface Market {
-  id: string
-  name: string
-  slug: string
-  flag: string
-  description: string
-  relevantProducts: string[]
-  buyerTypes: string[]
-  productRequirements: string[]
-  packagingNotes: string[]
-  documentationNotes: string[]
-  shippingConsiderations: string[]
-}
-
-/* -------------------------------------------------------------------------- */
 /*                                  SOLUTIONS                                 */
 /* -------------------------------------------------------------------------- */
 

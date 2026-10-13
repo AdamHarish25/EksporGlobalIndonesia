@@ -15,14 +15,14 @@ import type {
 /* -------------------------------------------------------------------------- */
 
 export const BRAND = {
-  name: 'Export Global Indonesia',
-  tagline: 'B2B Indonesian Sourcing & Export Partner',
+  name: 'Harvestora Global Indonesia',
+  tagline: 'PT. Harvestora Global Indonesia',
   heroBadge: '🇮🇩 Indonesian Sourcing & Export Partner',
 } as const
 
 export const CONTACT = {
   directorName: 'Adam Harish A.',
-  email: 'adam.eksporglobalindonesia@gmail.com',
+  email: 'info.harvestoraglobalindonesia@gmail.com',
   whatsAppNumber: '+62 856-1488-756',
   whatsAppId: '628561488756',
   location: 'Indonesia 🇮🇩',
@@ -31,10 +31,10 @@ export const CONTACT = {
 export const LINKS = {
   specSheet: '#',
   whatsAppGeneric: `https://wa.me/${CONTACT.whatsAppId}?text=${encodeURIComponent(
-    'Hello Export Global Indonesia, I am interested in your products. Please send me more information.',
+    'Hello Harvestora Global Indonesia, I am interested in your products. Please send me more information.',
   )}`,
   whatsAppFloat: `https://wa.me/${CONTACT.whatsAppId}?text=${encodeURIComponent(
-    'Hello Export Global Indonesia, I would like to inquire about your products.',
+    'Hello Harvestora Global Indonesia, I would like to inquire about your products.',
   )}`,
   whatsAppDirect: `https://wa.me/${CONTACT.whatsAppId}`,
 } as const
@@ -54,21 +54,12 @@ export const NAV_LINKS: NavLink[] = [
     ],
   },
   {
-    label: 'Markets',
-    href: '/markets',
-    children: [
-      { label: 'China', href: '/markets/china' },
-      { label: 'Southeast Asia', href: '/markets/southeast-asia' },
-      { label: 'Wider Asia', href: '/markets/wider-asia' },
-    ],
-  },
-  {
     label: 'Solutions',
     href: '/solutions',
     children: [
-      { label: 'Bulk Supply', href: '/solutions#bulk-supply' },
-      { label: 'Private Label', href: '/solutions#private-label' },
-      { label: 'Custom Sourcing', href: '/solutions#custom-sourcing' },
+      { label: 'Bulk Supply', href: '/solutions/bulk-supply' },
+      { label: 'Private Label', href: '/solutions/private-label' },
+      { label: 'Custom Sourcing', href: '/solutions/custom-sourcing' },
     ],
   },
   { label: 'How It Works', href: '/how-it-works' },
@@ -206,7 +197,7 @@ export const EXTRA_STANDARDS: string[] = [
 
 export const FAQ_DATA = [
   {
-    question: 'What products does Export Global Indonesia supply?',
+    question: 'What products does Harvestora Global Indonesia supply?',
     answer: 'We supply three main product lines: Shallots (Bawang Merah), Palm Sugar (Gula Aren), and Coconut Shell Charcoal Briquettes. Our architecture supports additional Indonesian products upon buyer request.',
   },
   {
