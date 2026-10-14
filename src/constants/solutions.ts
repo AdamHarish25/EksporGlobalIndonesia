@@ -52,8 +52,8 @@ export const SOLUTIONS: SolutionDetail[] = [
     showForm: false,
     carousel: [
       {
-        image: '/TerminalContainerAerial.webp',
-        imageAlt: 'Standard dry container for bulk cargo',
+        image: '/dryContainer.jpg',
+        imageAlt: 'Stacked standard dry shipping containers',
         text: {
           en: {
             badge: 'Dry Container • FCL',
@@ -78,8 +78,8 @@ export const SOLUTIONS: SolutionDetail[] = [
         },
       },
       {
-        image: '/AerialContainerPort.webp',
-        imageAlt: 'Reefer cold storage container at export port',
+        image: '/coldContainer.jpg',
+        imageAlt: 'Reefer cold storage containers at depot',
         text: {
           en: {
             badge: 'Reefer • Cold Chain',
@@ -104,8 +104,8 @@ export const SOLUTIONS: SolutionDetail[] = [
         },
       },
       {
-        image: '/inspection.webp',
-        imageAlt: 'Food-grade container quality check before stuffing',
+        image: '/foodgradeContainer.jpg',
+        imageAlt: 'Food-grade container for fresh and cold-chain cargo',
         text: {
           en: {
             badge: 'Ventilated • Food Grade',
