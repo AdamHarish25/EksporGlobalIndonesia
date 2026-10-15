@@ -28,6 +28,12 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 - Seluruh copy halaman ditulis dalam English (bahasa dasar `pageLanguage: 'en'`) agar ikut ter-translate otomatis ke ID/AR/ZH via LanguageSwitcher
 - "Struktur Organisasi Perusahaan" → "Corporate Organizational Structure"; "Bagan Organisasi" → "Organization Chart"; "Foto Pimpinan" → "Leadership Photos"; deskripsi CEO/COO/CFO + tombol → English
 
+#### Palm Sugar Photos: BrownSurga → GulaAren
+- Semua foto Gula Aren diganti dari BrownSurga ke aset baru: `public/GulaAren.jpeg` + `public/GulaAren2.jpeg`
+- `src/constants/products.ts`: palm sugar `image` → `/GulaAren.jpeg`, `gallery` → [`/GulaAren.jpeg`, `/GulaAren2.jpeg`]
+- `src/constants/solutions.ts`: private-label `image` → `/GulaAren.jpeg`
+- `src/pages/HomePage.tsx`: section Private Label `img` → `/GulaAren.jpeg`
+
 ---
 
 ## [4.0.0] - 2026-10-13

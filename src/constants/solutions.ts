@@ -148,7 +148,7 @@ export const SOLUTIONS: SolutionDetail[] = [
       'End-to-end export coordination',
     ],
     cta: 'Discuss Private Label',
-    image: '/BrownSurga3.webp',
+    image: '/GulaAren.jpeg',
     imageAlt: 'Private label palm sugar retail packaging',
     showForm: false,
   },

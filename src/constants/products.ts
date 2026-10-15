@@ -131,8 +131,8 @@ export const PRODUCTS: Product[] = [
     ],
     certifications: ['CoA', 'Halal'],
     privateLabelAvailable: true,
-    image: '/BrownSurga3.webp',
-    gallery: ['/BrownSurga3.webp', '/BrownSurga2.webp', '/BrownSurga.webp'],
+    image: '/GulaAren.jpeg',
+    gallery: ['/GulaAren.jpeg', '/GulaAren2.jpeg'],
   },
   {
     id: 'coconut-shell-charcoal-briquettes',

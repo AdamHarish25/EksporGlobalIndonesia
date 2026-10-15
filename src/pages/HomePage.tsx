@@ -401,7 +401,7 @@ export default function HomePage() {
           </div>
           <div className="mt-12 grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative rounded-2xl overflow-hidden ring-1 ring-slate-200 shadow-xl bg-slate-900">
-              <img src="/BrownSurga3.webp" alt="Private label palm sugar retail packaging" className="h-80 w-full object-cover" loading="lazy" />
+              <img src="/GulaAren.jpeg" alt="Private label palm sugar retail packaging" className="h-80 w-full object-cover" loading="lazy" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
               <div className="absolute top-4 left-4 flex flex-wrap gap-2">
                 <span className="inline-flex items-center rounded-full bg-white/95 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-slate-900 ring-1 ring-white/20">
