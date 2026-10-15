@@ -27,7 +27,9 @@ import {
   Mail,
 } from 'lucide-react'
 import { BRAND, CONTACT, LINKS, TRUST_METRICS, WHY_CARDS, CERT_CARDS, CERT_PALETTE, FAQ_DATA, HOW_IT_WORKS_STEPS, EXPORT_DOCUMENTS } from '@/constants'
-import { PRODUCTS } from '@/constants/products'
+import { useProducts } from '@/hooks/useProducts'
+import { useSolutions } from '@/hooks/useSolutions'
+import { useSiteContent } from '@/hooks/useSiteContent'
 
 const BUYER_TYPES = [
   { icon: ShoppingCart, title: 'Importers', desc: 'Direct supply for import businesses seeking reliable Indonesian sourcing partners.' },
@@ -36,34 +38,16 @@ const BUYER_TYPES = [
   { icon: Tag, title: 'Private Label Buyers', desc: 'Custom branding and packaging through our manufacturing partners.' },
 ]
 
-const SOLUTIONS = [
-  {
-    id: 'bulk-supply',
-    icon: Package,
-    title: 'Bulk Supply',
-    desc: 'Full-container-load (FCL) supply of shallots, palm sugar and charcoal briquettes with competitive FOB pricing.',
-    features: ['FCL quantities (subject to product & packaging)',       'FOB terms available', 'Lot-by-lot quality verification', 'Flexible shipping schedules'],
-    cta: 'Request Bulk Quote',
-  },
-  {
-    id: 'private-label',
-    icon: Tag,
-    title: 'Private Label',
-    desc: 'Custom-branded packaging and labeling through our manufacturing partners. From concept to delivered product.',
-    features: ['Custom label design', 'Retail-ready packaging', 'Small & large batch runs', 'Multiple format options'],
-    cta: 'Discuss Private Label',
-  },
-  {
-    id: 'custom-sourcing',
-    icon: Globe,
-    title: 'Custom Sourcing',
-    desc: 'Need a specific Indonesian product? We source and export additional product lines based on buyer requirements.',
-    features: ['Product specification matching', 'Supplier verification', 'Quality sampling', 'Documentation support'],
-    cta: 'Start Custom Sourcing',
-  },
-]
+
 
 export default function HomePage() {
+  const { products } = useProducts()
+  const { solutions } = useSolutions()
+  const content = useSiteContent()
+  const heroBadge = content['hero_badge'] ?? BRAND.heroBadge
+  const heroTitle = content['hero_title'] ?? 'Connecting Global Buyers with'
+  const heroHighlight = content['hero_title_highlight'] ?? 'Quality Products from Indonesia'
+  const heroSubtitle = content['hero_subtitle'] ?? 'Source export-ready Indonesian products through a reliable B2B sourcing and export partner.'
   const [openFaq, setOpenFaq] = useState<number | null>(null)
   const [sourcingForm, setSourcingForm] = useState({
     product: '',
@@ -102,14 +86,14 @@ export default function HomePage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 lg:py-24 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-1.5 text-xs sm:text-sm font-semibold text-brand-200 backdrop-blur-sm">
-              {BRAND.heroBadge}
+              {heroBadge}
             </span>
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.02]">
-              Connecting Global Buyers with{' '}
-              <span className="text-brand-300">Quality Products from Indonesia</span>
+              {heroTitle}{' '}
+              <span className="text-brand-300">{heroHighlight}</span>
             </h1>
             <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-xl">
-              Source export-ready Indonesian products through a reliable B2B sourcing and export partner.
+              {heroSubtitle}
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -144,7 +128,7 @@ export default function HomePage() {
                 <img src="/AerialContainerPort.webp" alt="Indonesian export products" className="h-[28rem] w-full object-cover" loading="eager" />
                 <div className="absolute inset-x-0 bottom-0 z-20 p-6 sm:p-7">
                   <div className="flex flex-wrap gap-2">
-                    {PRODUCTS.map(p => (
+                    {products.map(p => (
                       <span key={p.id} className="inline-flex items-center rounded-full bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm ring-1 ring-white/10">
                         {p.name}
                       </span>
@@ -236,7 +220,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-12 grid md:grid-cols-3 gap-8">
-            {PRODUCTS.map(p => (
+            {products.map(p => (
               <Link
                 key={p.id}
                 to={`/products/${p.slug}`}
@@ -292,7 +276,7 @@ export default function HomePage() {
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50">
                     <th className="px-6 py-4 text-left font-bold text-slate-900">Feature</th>
-                    {PRODUCTS.map(p => (
+                    {products.map(p => (
                       <th key={p.id} className="px-6 py-4 text-left font-bold text-slate-900">{p.name}</th>
                     ))}
                   </tr>
@@ -300,25 +284,25 @@ export default function HomePage() {
                 <tbody className="divide-y divide-slate-100">
                   <tr>
                     <td className="px-6 py-4 font-semibold text-slate-700">Category</td>
-                    {PRODUCTS.map(p => (
+                    {products.map(p => (
                       <td key={p.id} className="px-6 py-4 text-slate-600">{p.category}</td>
                     ))}
                   </tr>
                   <tr>
                     <td className="px-6 py-4 font-semibold text-slate-700">MOQ</td>
-                    {PRODUCTS.map(p => (
+                    {products.map(p => (
                       <td key={p.id} className="px-6 py-4 text-slate-600">{p.moq}</td>
                     ))}
                   </tr>
                   <tr>
                     <td className="px-6 py-4 font-semibold text-slate-700">Incoterms</td>
-                    {PRODUCTS.map(p => (
+                    {products.map(p => (
                       <td key={p.id} className="px-6 py-4 text-slate-600">{p.incoterms.join(', ')}</td>
                     ))}
                   </tr>
                   <tr>
                     <td className="px-6 py-4 font-semibold text-slate-700">Private Label</td>
-                    {PRODUCTS.map(p => (
+                    {products.map(p => (
                       <td key={p.id} className="px-6 py-4">
                         {p.privateLabelAvailable ? (
                           <CheckCircle2 size={18} className="text-brand-600" />
@@ -330,7 +314,7 @@ export default function HomePage() {
                   </tr>
                   <tr>
                     <td className="px-6 py-4 font-semibold text-slate-700">Certifications</td>
-                    {PRODUCTS.map(p => (
+                    {products.map(p => (
                       <td key={p.id} className="px-6 py-4 text-slate-600">{p.certifications.join(', ')}</td>
                     ))}
                   </tr>
@@ -356,7 +340,7 @@ export default function HomePage() {
             </p>
           </div>
           <div className="mt-12 grid md:grid-cols-3 gap-8">
-            {SOLUTIONS.map(s => (
+            {solutions.map(s => (
               <div key={s.id} className="group relative rounded-2xl bg-white p-6 lg:p-8 ring-1 ring-slate-200 hover:ring-brand-500 hover:shadow-xl hover:shadow-brand-500/5 transition-all">
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center shadow-lg shadow-brand-500/20 group-hover:scale-105 transition-transform">
                   <s.icon size={26} className="text-white" />

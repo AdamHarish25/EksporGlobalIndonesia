@@ -2,10 +2,12 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X, ChevronDown, FileText } from 'lucide-react'
 import { NAV_LINKS, BRAND } from '@/constants'
+import { useAuth } from '@/hooks/useAuth'
 import BrandLogo from '@/components/BrandLogo'
 import LanguageSwitcher from '@/components/LanguageSwitcher'
 
 export default function Navbar() {
+  const { role } = useAuth()
   const [open, setOpen] = React.useState(false)
   const [activeDropdown, setActiveDropdown] = React.useState<string | null>(null)
   const location = useLocation()
@@ -73,6 +75,14 @@ export default function Navbar() {
               </div>
             ))}
             <LanguageSwitcher />
+            {role && (
+              <Link
+                to="/admin/products"
+                className="px-3 py-2 text-sm font-medium transition-colors rounded-lg text-slate-700 hover:text-brand-700 hover:bg-slate-50"
+              >
+                Admin
+              </Link>
+            )}
             <Link
               to="/request-a-quote"
               className="inline-flex items-center gap-2 rounded-lg bg-brand-600 hover:bg-brand-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors ml-2"
@@ -141,8 +151,17 @@ export default function Navbar() {
             ))}
             <div className="mt-2 flex items-center justify-between border-t border-slate-100 pt-3">
               <span className="px-3 text-sm font-medium text-slate-500">Language</span>
-              <LanguageSwitcher />
+            <LanguageSwitcher />
             </div>
+            {role && (
+              <Link
+                to="/admin/products"
+                onClick={close}
+                className="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-slate-50"
+              >
+                Admin
+              </Link>
+            )}
             <Link
               to="/request-a-quote"
               onClick={close}

@@ -1,12 +1,13 @@
 import { Link } from 'react-router-dom'
 import { CheckCircle2, ArrowRight } from 'lucide-react'
-import { SOLUTIONS } from '@/constants/solutions'
+import { useSolutions } from '@/hooks/useSolutions'
 
 /**
  * Overview solutions — hanya kartu navigasi ke route terpisah.
  * Tidak lagi menggabung 3 solution dalam 1 halaman dengan id anchor.
  */
 export default function SolutionsPage() {
+  const { solutions } = useSolutions()
   return (
     <>
       <section className="bg-slate-950 text-white">
@@ -25,7 +26,7 @@ export default function SolutionsPage() {
 
       <section className="py-14 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
-          {SOLUTIONS.map((s) => (
+          {solutions.map((s) => (
             <Link
               key={s.slug}
               to={`/solutions/${s.slug}`}

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { Link, useParams, Navigate } from 'react-router-dom'
 import { CheckCircle2, Send, ArrowLeft, ArrowRight } from 'lucide-react'
-import { SOLUTIONS, getSolutionBySlug } from '@/constants/solutions'
+import { useSolution } from '@/hooks/useSolutions'
 import { CONTACT } from '@/constants'
 import ImageCarousel from '@/components/ImageCarousel'
+import PageLoader from '@/components/PageLoader'
 
 export default function SolutionDetailPage() {
   const { slug } = useParams<{ slug: string }>()
-  const solution = slug ? getSolutionBySlug(slug) : undefined
+  const { solution, others, loading } = useSolution(slug)
 
   const [form, setForm] = useState({
     product: '',
@@ -19,11 +20,14 @@ export default function SolutionDetailPage() {
     message: '',
   })
 
+  if (loading) {
+    return <PageLoader />
+  }
+
   if (!solution) {
     return <Navigate to="/solutions" replace />
   }
 
-  const others = SOLUTIONS.filter((s) => s.slug !== solution.slug)
   const Icon = solution.icon
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {

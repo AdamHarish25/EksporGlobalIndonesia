@@ -1,13 +1,20 @@
 import { useState } from 'react'
 import {
-  Factory, Send, CheckCircle2,
+  Factory, Send, CheckCircle2, Upload, X,
 } from 'lucide-react'
 import { CONTACT, LINKS } from '@/constants'
+import { isSupabaseConfigured } from '@/lib/supabase'
+import {
+  submitSupplierRegistration, uploadSupplierPhotos,
+  MAX_PHOTOS, MAX_PHOTO_BYTES,
+} from '@/lib/suppliersDb'
 
 interface SupplierFormState {
   companyName: string
+  companyType: string
   factoryLocation: string
   product: string
+  productDetails: string
   productionCapacity: string
   moq: string
   packaging: string
@@ -22,8 +29,10 @@ interface SupplierFormState {
 
 const INITIAL_FORM: SupplierFormState = {
   companyName: '',
+  companyType: '',
   factoryLocation: '',
   product: '',
+  productDetails: '',
   productionCapacity: '',
   moq: '',
   packaging: '',
@@ -35,6 +44,8 @@ const INITIAL_FORM: SupplierFormState = {
   contactPhone: '',
   message: '',
 }
+
+const COMPANY_TYPES = ['PT', 'CV', 'UD', 'Koperasi', 'Lainnya']
 
 const BENEFITS = [
   'Access to international B2B buyers',
@@ -48,6 +59,11 @@ export default function ForSuppliersPage() {
   const [form, setForm] = useState<SupplierFormState>(INITIAL_FORM)
   const [errors, setErrors] = useState<Partial<Record<keyof SupplierFormState, string>>>({})
   const [submitted, setSubmitted] = useState(false)
+  const [sentVia, setSentVia] = useState<'database' | 'email'>('database')
+  const [submitting, setSubmitting] = useState(false)
+  const [photos, setPhotos] = useState<File[]>([])
+  const [photoError, setPhotoError] = useState<string | null>(null)
+  const [honeypot, setHoneypot] = useState('') // anti-spam: manusia tidak mengisi ini
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -69,14 +85,34 @@ export default function ForSuppliersPage() {
     return Object.keys(newErrors).length === 0
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (!validate()) return
+  const handlePhotos = (files: FileList | null) => {
+    if (!files) return
+    setPhotoError(null)
+    const next = [...photos]
+    for (const file of Array.from(files)) {
+      if (!file.type.startsWith('image/')) {
+        setPhotoError(`"${file.name}" bukan file gambar.`)
+        continue
+      }
+      if (file.size > MAX_PHOTO_BYTES) {
+        setPhotoError(`"${file.name}" melebihi 5 MB.`)
+        continue
+      }
+      if (next.length >= MAX_PHOTOS) {
+        setPhotoError(`Maksimal ${MAX_PHOTOS} foto.`)
+        break
+      }
+      next.push(file)
+    }
+    setPhotos(next)
+  }
 
+  const openMailtoFallback = () => {
     const body = [
-      `Company Name: ${form.companyName}`,
+      `Company Name: ${form.companyName} (${form.companyType})`,
       `Factory Location: ${form.factoryLocation}`,
       `Product: ${form.product}`,
+      `Product Details: ${form.productDetails}`,
       `Production Capacity: ${form.productionCapacity}`,
       `MOQ: ${form.moq}`,
       `Packaging: ${form.packaging}`,
@@ -93,7 +129,68 @@ export default function ForSuppliersPage() {
       `mailto:${CONTACT.email}?subject=${encodeURIComponent(`[Supplier Registration] ${form.companyName}`)}&body=${encodeURIComponent(body)}`,
       '_blank'
     )
-    setSubmitted(true)
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!validate() || submitting) return
+
+    // Honeypot terisi → bot: anggap sukses tanpa menyimpan apa pun.
+    if (honeypot.trim() !== '') {
+      setSentVia('database')
+      setSubmitted(true)
+      return
+    }
+
+    // Tanpa Supabase → fallback email seperti sebelumnya.
+    if (!isSupabaseConfigured) {
+      openMailtoFallback()
+      setSentVia('email')
+      setSubmitted(true)
+      return
+    }
+
+    setSubmitting(true)
+    try {
+      const paths = photos.length > 0 ? await uploadSupplierPhotos(photos) : []
+      await submitSupplierRegistration(
+        {
+          companyName: form.companyName,
+          companyType: form.companyType,
+          factoryLocation: form.factoryLocation,
+          product: form.product,
+          productDetails: form.productDetails,
+          productionCapacity: form.productionCapacity,
+          moq: form.moq,
+          packaging: form.packaging,
+          certifications: form.certifications,
+          exportExperience: form.exportExperience,
+          website: form.website,
+          contactName: form.contactName,
+          contactEmail: form.contactEmail,
+          contactPhone: form.contactPhone,
+          message: form.message,
+        },
+        paths,
+      )
+      setSentVia('database')
+      setSubmitted(true)
+    } catch {
+      // DB/upload gagal → jangan hilangkan data: kirim via email.
+      openMailtoFallback()
+      setSentVia('email')
+      setSubmitted(true)
+    } finally {
+      setSubmitting(false)
+    }
+  }
+
+  const resetForm = () => {
+    setSubmitted(false)
+    setForm(INITIAL_FORM)
+    setPhotos([])
+    setPhotoError(null)
+    setHoneypot('')
   }
 
   return (
@@ -157,9 +254,14 @@ export default function ForSuppliersPage() {
                 <h3 className="mt-4 text-xl font-extrabold text-slate-900">Registration Submitted</h3>
                 <p className="mt-2 text-slate-600">
                   Thank you for your interest. We will review your registration and get back to you shortly.
+                  {sentVia === 'email' && (
+                    <span className="block mt-1 text-sm text-slate-500">
+                      (Sent via email fallback — please complete sending in your mail app.)
+                    </span>
+                  )}
                 </p>
                 <button
-                  onClick={() => { setSubmitted(false); setForm(INITIAL_FORM) }}
+                  onClick={resetForm}
                   className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-brand-600 hover:text-brand-700"
                 >
                   Submit Another Registration
@@ -174,10 +276,19 @@ export default function ForSuppliersPage() {
                   <h3 className="text-lg font-extrabold text-slate-900">Company Information</h3>
                 </div>
                 <div className="grid gap-4">
-                  <div>
-                    <label className="block text-sm font-semibold text-slate-700 mb-1">Company Name *</label>
-                    <input name="companyName" value={form.companyName} onChange={handleChange} required placeholder="Your company name" className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.companyName ? 'border-red-400' : 'border-slate-200'}`} />
-                    {errors.companyName && <p className="mt-1 text-xs text-red-500">{errors.companyName}</p>}
+                  <div className="grid sm:grid-cols-[1fr_160px] gap-4">
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-1">Company Name *</label>
+                      <input name="companyName" value={form.companyName} onChange={handleChange} required placeholder="Your company name" className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.companyName ? 'border-red-400' : 'border-slate-200'}`} />
+                      {errors.companyName && <p className="mt-1 text-xs text-red-500">{errors.companyName}</p>}
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold text-slate-700 mb-1">Type</label>
+                      <select name="companyType" value={form.companyType} onChange={handleChange} className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500">
+                        <option value="">Select...</option>
+                        {COMPANY_TYPES.map(t => <option key={t} value={t}>{t}</option>)}
+                      </select>
+                    </div>
                   </div>
                   <div>
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Factory Location *</label>
@@ -188,6 +299,10 @@ export default function ForSuppliersPage() {
                     <label className="block text-sm font-semibold text-slate-700 mb-1">Product *</label>
                     <input name="product" value={form.product} onChange={handleChange} required placeholder="e.g., Shallots, Palm Sugar, Charcoal Briquettes" className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.product ? 'border-red-400' : 'border-slate-200'}`} />
                     {errors.product && <p className="mt-1 text-xs text-red-500">{errors.product}</p>}
+                  </div>
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 mb-1">Product Details</label>
+                    <textarea name="productDetails" value={form.productDetails} onChange={handleChange} rows={3} placeholder="Specs, grades, variants, uniqueness of your product..." className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 resize-none" />
                   </div>
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div>
@@ -216,6 +331,35 @@ export default function ForSuppliersPage() {
                     <input name="website" value={form.website} onChange={handleChange} placeholder="https://your-company.com" className="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500" />
                   </div>
 
+                  <div>
+                    <label className="block text-sm font-semibold text-slate-700 mb-1">
+                      Product Photos <span className="font-normal text-slate-400">(max {MAX_PHOTOS}, 5 MB each)</span>
+                    </label>
+                    <label className="flex items-center gap-2 rounded-xl border border-dashed border-slate-300 px-4 py-3 text-sm font-semibold text-slate-600 hover:border-brand-500 hover:text-brand-700 cursor-pointer">
+                      <Upload size={16} />
+                      {photos.length > 0 ? `${photos.length} photo(s) selected` : 'Choose product photos...'}
+                      <input type="file" accept="image/*" multiple className="hidden" onChange={e => handlePhotos(e.target.files)} />
+                    </label>
+                    {photoError && <p className="mt-1 text-xs text-red-500">{photoError}</p>}
+                    {photos.length > 0 && (
+                      <div className="mt-3 grid grid-cols-3 sm:grid-cols-5 gap-2">
+                        {photos.map((f, i) => (
+                          <div key={`${f.name}-${i}`} className="relative group rounded-xl overflow-hidden ring-1 ring-slate-200">
+                            <img src={URL.createObjectURL(f)} alt={f.name} className="h-20 w-full object-cover" />
+                            <button
+                              type="button"
+                              onClick={() => setPhotos(prev => prev.filter((_, j) => j !== i))}
+                              className="absolute top-1 right-1 p-1 rounded-lg bg-black/60 text-white opacity-0 group-hover:opacity-100 transition-opacity"
+                              title="Remove"
+                            >
+                              <X size={14} />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+
                   <div className="border-t border-slate-200 pt-4 mt-2">
                     <h4 className="text-sm font-bold text-slate-900 mb-3">Contact Information</h4>
                   </div>
@@ -242,11 +386,22 @@ export default function ForSuppliersPage() {
                   </div>
                   <button
                     type="submit"
-                    className="mt-2 w-full inline-flex items-center justify-center gap-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5"
+                    disabled={submitting}
+                    className="mt-2 w-full inline-flex items-center justify-center gap-2.5 rounded-xl bg-brand-600 hover:bg-brand-700 disabled:opacity-60 px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-brand-600/25 transition-all hover:-translate-y-0.5"
                   >
                     <Send size={18} />
-                    Submit Registration
+                    {submitting ? 'Submitting...' : 'Submit Registration'}
                   </button>
+                  {/* Honeypot anti-spam: disembunyikan, manusia tidak mengisi */}
+                  <input
+                    type="text"
+                    value={honeypot}
+                    onChange={e => setHoneypot(e.target.value)}
+                    className="hidden"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                  />
                 </div>
               </form>
             )}

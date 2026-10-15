@@ -4,8 +4,12 @@ import {
   ShieldCheck, Handshake, MessageCircle, ArrowRight,
 } from 'lucide-react'
 import { BRAND, CONTACT } from '@/constants'
+import { useSiteContent } from '@/hooks/useSiteContent'
 
 export default function AboutPage() {
+  const content = useSiteContent()
+  const email = content['contact_email'] ?? CONTACT.email
+  const location = content['contact_location'] ?? CONTACT.location
   return (
     <>
       {/* Hero */}
@@ -134,7 +138,7 @@ export default function AboutPage() {
               <MapPin size={20} className="text-brand-600 shrink-0 mt-0.5" />
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Location</div>
-                <div className="mt-1 text-sm font-semibold text-slate-900">{CONTACT.location}</div>
+                <div className="mt-1 text-sm font-semibold text-slate-900">{location}</div>
               </div>
             </div>
             <div className="flex items-start gap-3 rounded-2xl bg-white ring-1 ring-slate-200 p-5">
@@ -155,7 +159,7 @@ export default function AboutPage() {
               <Mail size={20} className="text-brand-600 shrink-0 mt-0.5" />
               <div>
                 <div className="text-xs font-bold uppercase tracking-wider text-slate-500">Email</div>
-                <div className="mt-1 text-sm font-semibold text-slate-900 break-all">{CONTACT.email}</div>
+                <div className="mt-1 text-sm font-semibold text-slate-900 break-all">{email}</div>
               </div>
             </div>
           </div>

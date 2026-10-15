@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
-import { PRODUCTS } from '@/constants/products'
+import { useProducts } from '@/hooks/useProducts'
 
 export default function ProductsPage() {
+  const { products } = useProducts()
   return (
     <>
       <section className="bg-slate-950 text-white">
@@ -24,7 +25,7 @@ export default function ProductsPage() {
       <section className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-slate-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-3 gap-8">
-            {PRODUCTS.map(p => (
+            {products.map(p => (
               <Link
                 key={p.id}
                 to={`/products/${p.slug}`}

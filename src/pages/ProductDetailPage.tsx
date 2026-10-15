@@ -1,5 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
-import { PRODUCTS, getSpecificationDisclaimer } from '@/constants/products'
+import { getSpecificationDisclaimer } from '@/constants/products'
+import { useProduct } from '@/hooks/useProducts'
+import PageLoader from '@/components/PageLoader'
 import {
   MessageCircle,
   ArrowRight,
@@ -18,7 +20,11 @@ import {
 
 export default function ProductDetailPage() {
   const { slug } = useParams<{ slug: string }>()
-  const product = PRODUCTS.find(p => p.slug === slug)
+  const { product, loading } = useProduct(slug)
+
+  if (loading) {
+    return <PageLoader />
+  }
 
   if (!product) {
     return (

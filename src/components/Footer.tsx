@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import { CONTACT, BRAND, LINKS } from '@/constants'
+import { useSiteContent } from '@/hooks/useSiteContent'
 import BrandLogo from '@/components/BrandLogo'
 
 export default function Footer() {
+  const content = useSiteContent()
+  const tagline = content['footer_tagline'] ?? 'Connecting global buyers with quality products from Indonesia.'
+  const email = content['contact_email'] ?? CONTACT.email
+  const location = content['contact_location'] ?? CONTACT.location
   return (
     <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -12,12 +17,12 @@ export default function Footer() {
           <div>
             <BrandLogo className="w-14 h-fit" line={BRAND.tagline} background={true} />
             <p className="mt-4 text-sm text-slate-400 leading-relaxed">
-              Connecting global buyers with quality products from Indonesia.
+              {tagline}
             </p>
             <div className="mt-5 space-y-3">
-              <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-3 text-sm text-slate-400 hover:text-brand-400 transition-colors">
+              <a href={`mailto:${email}`} className="flex items-center gap-3 text-sm text-slate-400 hover:text-brand-400 transition-colors">
                 <Mail size={16} />
-                <span className="break-all">{CONTACT.email}</span>
+                <span className="break-all">{email}</span>
               </a>
               <a href={LINKS.whatsAppDirect} target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm text-slate-400 hover:text-brand-400 transition-colors">
                 <Phone size={16} />
@@ -25,7 +30,7 @@ export default function Footer() {
               </a>
               <div className="flex items-center gap-3 text-sm text-slate-400">
                 <MapPin size={16} />
-                {CONTACT.location}
+                {location}
               </div>
             </div>
           </div>
@@ -46,6 +51,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li><Link to="/about" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">About Us</Link></li>
               <li><Link to="/organization" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">Organization</Link></li>
+              <li><Link to="/partners" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">Our Supply Partners</Link></li>
               <li><Link to="/how-it-works" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">How It Works</Link></li>
               <li><Link to="/for-buyers" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">For Buyers</Link></li>
               <li><Link to="/for-suppliers" className="text-sm text-slate-400 hover:text-brand-400 transition-colors">For Suppliers</Link></li>

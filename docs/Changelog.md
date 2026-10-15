@@ -6,6 +6,69 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [Unreleased] — Supabase RBAC Phase 0 (Setup & Koneksi)
+
+### Added
+- `supabase/schema.sql`: tabel `user_roles`, `products`, `product_specs`, `product_packaging` + function `has_role()` + RLS policies (publik read published, tulis editor+) + bucket `product-images` + publikasi Realtime
+- `supabase/seed.sql`: seed 3 produk + 23 specs + 10 packaging (mirror `src/constants/products.ts`), idempotent
+- `src/lib/supabase.ts`: client singleton `@supabase/supabase-js` v2 (tanpa env → warning + fallback, situs tidak rusak)
+- `.env.example` + `.gitignore` (`.env` / `.env.local` tidak ke-commit)
+- Dependency: `@supabase/supabase-js`
+- Detail rencana: `docs/SupabaseRBAC-Plan.md`
+
+### Verified
+- Anon read `products` → 3 baris published; `product_specs` → 23 baris
+- Anon write → ditolak RLS (`42501 new row violates row-level security policy`)
+
+### Added (Phase 1 — Public Read + Realtime)
+- `src/lib/productsDb.ts`: tipe baris DB + `fetchProductsFromDb()` + `mapDbProduct()` (snake_case → tipe `Product`; ikon packaging disimpulkan dari kata kunci; validasi `categoryColor`/`status` dengan fallback aman)
+- `src/hooks/useProducts.ts`: `useProducts()` / `useProduct(slug)` — render pertama dari konstanta statis (instan), lalu fetch Supabase; kosong/gagal → tetap statis (situs tak pernah blank); subscribe Realtime `products`/`product_specs`/`product_packaging` → refetch otomatis tanpa refresh
+- Hook dipakai di `ProductsPage`, `ProductDetailPage`, `HomePage`, `RequestQuotePage` (menggantikan import `PRODUCTS` langsung; `getSpecificationDisclaimer` tetap dari konstanta)
+
+### Verified (Phase 1)
+- Build lolos; kontrak data valid (3 produk / 23 specs / 10 packaging, tanpa field hilang; status `TARGET`; warna `brand`/`slate`)
+- Realtime channel handshake `SUBSCRIBED ok`
+- Google Translate aman (konten dinamis = DOM normal tanpa `notranslate`)
+- E2E manual tertunda: butuh ubah 1 kata via Table Editor dan lihat situs update (aksi pemilik akun)
+
+### Added (Phase 2 — Auth + Admin Panel)
+- `src/hooks/useAuth.tsx`: `AuthProvider` + `useAuth` (session, role admin/editor, signIn/signOut); client Supabase di-load dinamis agar main bundle tetap ramping (~218KB)
+- `src/components/ProtectedRoute.tsx`: kunci route admin (belum login → `/admin/login`; peran kurang → halaman akses-ditolak)
+- `src/components/AdminLayout.tsx`: topbar panel admin (badge peran, Lihat Situs, Keluar)
+- `src/pages/admin/AdminLoginPage.tsx` (`/admin/login`), `AdminProductsPage.tsx` (`/admin/products`: list semua status + preview/hapus), `AdminProductFormPage.tsx` (`/admin/products/new`, `/admin/products/:id`: info dasar, specs dinamis, packaging dinamis, list koma, foto utama, draft/published)
+- `src/lib/productsDb.ts`: `fetchProductBySlugFromDb()` (preview draft untuk editor), `saveProduct()`, `deleteProductById()`, `uploadProductImage()` (bucket `product-images`)
+- `useProduct()` mendukung preview draft via URL publik (RLS: editor bisa baca draft, anon tetap 404)
+- `supabase/make-admin.sql`: script penetapan peran admin/editor pertama
+- Navbar/Footer/WhatsApp disembunyikan di `/admin/*`; link "Admin" muncul di navbar bila sudah login sebagai editor/admin
+- `src/components/AdminDesktopGate.tsx`: Admin Panel hanya untuk tablet–desktop (min-width 768px, ikut breakpoint md Tailwind, live via `matchMedia`); pengunjung mobile mendapat pemberitahuan + tombol kembali — dipasang di `/admin/login` dan `ProtectedRoute`
+
+### Added (Phase 3 — CMS: content, solutions, audit)
+- `supabase/phase3.sql`: tabel `site_content` (key→value, read publik/write editor+), `solutions` (+ RLS published/editor mirror products), `audit_logs` (trigger `log_changes()` SECURITY DEFINER di 5 tabel, read admin-only), Realtime untuk kedua tabel baru
+- `supabase/seed-phase3.sql`: 3 solutions + 7 keys konten (hero ×4, footer tagline, email, lokasi), idempotent
+- `src/lib/contentDb.ts` + `src/hooks/useSiteContent.ts` (`useSiteContent`/`useContent` + realtime; gagal → fallback statis per key)
+- `src/lib/solutionsDb.ts` + `src/hooks/useSolutions.ts` (`useSolutions`/`useSolution`; ikon dari `icon_name`; carousel multibahasa tetap digabung dari data statis per slug; preview draft untuk editor)
+- Admin: `/admin/content` (edit per key + status simpan), `/admin/solutions` + form (`/admin/solutions/new`, `/:id`), `/admin/logs` (khusus admin, 100 terakhir, ringkas nama/slug + pelaku); tab navigasi Products/Content/Solutions/Logs
+- Wiring publik live: hero homepage, tagline + email + lokasi footer, email + lokasi halaman About, `SolutionsPage`, `SolutionDetailPage`, section solutions homepage
+- `useProduct`/`useSolution` expose `loading` — halaman detail menunggu fetch draft sebelum 404/redirect (perbaikan preview draft)
+- `.github/workflows/supabase-keepalive.yml`: ping REST Senin & Kamis (butuh secrets `SUPABASE_URL` + `SUPABASE_ANON_KEY`; hapus jika upgrade Pro)
+
+### Added (Phase 4 — Supplier Registration ke Database)
+- `supabase/phase4-suppliers.sql`: tabel `supplier_registrations` (nama + bentuk usaha PT/CV, lokasi pabrik, produk + detail, kapasitas, MOQ, kemasan, sertifikat, pengalaman ekspor, website, kontak resmi nama/email/HP, pesan, foto, status new/reviewed/approved/rejected) + bucket private `supplier-photos` + RLS (INSERT anon, sisanya editor+) + trigger audit + realtime
+- `src/lib/suppliersDb.ts`: upload foto (acak nama, max 5×5MB), submit, list, ubah status, hapus, signed URL preview foto
+- `src/pages/ForSuppliersPage.tsx`: field baru (bentuk usaha, detail produk, foto + preview), honeypot anti-spam, simpan ke DB → sukses; gagal → fallback mailto (data tidak hilang)
+- `src/pages/admin/AdminSuppliersPage.tsx` (`/admin/suppliers`): daftar live + detail lengkap (foto, sertifikat, kontak + balas email) + status + hapus; tab Suppliers di navigasi admin
+
+### Added (Phase 5 — Direktori Partner Publik)
+- `supabase/phase5-partners.sql`: view `supplier_directory` (hanya `approved` + kolom aman; RLS read-publik) + policy `sp_public_read` untuk foto di halaman publik
+- `src/pages/SupplyPartnersPage.tsx` (`/partners`): direktori partner terverifikasi (foto, PT/CV, lokasi, produk + detail, kapasitas, MOQ, sertifikat, kontak resmi, website) + empty state + CTA; realtime via channel bersama
+- Navbar: menu dropdown "Partner" (Our Supply Partners → `/partners`, Become Our Partners → `/for-suppliers`); Footer: link Our Supply Partners
+
+### Fixed (Realtime — channel duplikat)
+- Bug: dua hook dalam satu halaman memakai nama channel sama (HomePage + Footer sama-sama `useSiteContent` → `site-content-changes`) membuat supabase-js melempar `cannot add postgres_changes callbacks after subscribe()` dan meledakkan React tree
+- `src/lib/realtime.ts` (baru): `subscribeShared()` — satu channel + satu subscribe per nama, handler refcount; aman untuk banyak hook per halaman dan StrictMode double-mount; dipakai `useProducts`, `useSolutions`, `useSiteContent`, dan daftar admin Suppliers
+
+---
+
 ## [4.1.0] - 2026-10-15
 
 ### Added

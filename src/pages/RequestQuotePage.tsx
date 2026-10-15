@@ -3,7 +3,7 @@ import {
   MessageCircle, Send, CheckCircle2,
 } from 'lucide-react'
 import { CONTACT } from '@/constants'
-import { PRODUCTS } from '@/constants/products'
+import { useProducts } from '@/hooks/useProducts'
 
 const INCOTERMS = ['FOB', 'Other']
 
@@ -48,6 +48,7 @@ const INITIAL_FORM: FormState = {
 const UNITS = ['MT (Metric Tons)', 'KG', 'Liters', 'Cartons', 'Containers', 'Other']
 
 export default function RequestQuotePage() {
+  const { products } = useProducts()
   const [form, setForm] = useState<FormState>(INITIAL_FORM)
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({})
   const [submitted, setSubmitted] = useState(false)
@@ -199,7 +200,7 @@ export default function RequestQuotePage() {
                         className={`w-full rounded-xl border px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/30 focus:border-brand-500 ${errors.product ? 'border-red-400' : 'border-slate-200'}`}
                       />
                       <datalist id="products">
-                        {PRODUCTS.map(p => (
+                        {products.map(p => (
                           <option key={p.id} value={p.name} />
                         ))}
                         <option value="Custom Product" />
