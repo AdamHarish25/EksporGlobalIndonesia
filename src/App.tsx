@@ -15,6 +15,7 @@ const SolutionsPage = lazy(() => import('@/pages/SolutionsPage'))
 const SolutionDetailPage = lazy(() => import('@/pages/SolutionDetailPage'))
 const HowItWorksPage = lazy(() => import('@/pages/HowItWorksPage'))
 const AboutPage = lazy(() => import('@/pages/AboutPage'))
+const OrganizationPage = lazy(() => import('@/pages/OrganizationPage'))
 const ForBuyersPage = lazy(() => import('@/pages/ForBuyersPage'))
 const ForSuppliersPage = lazy(() => import('@/pages/ForSuppliersPage'))
 const RequestQuotePage = lazy(() => import('@/pages/RequestQuotePage'))
@@ -39,6 +40,7 @@ export default function App() {
             <Route path="/solutions/:slug" element={<SolutionDetailPage />} />
             <Route path="/how-it-works" element={<HowItWorksPage />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/organization" element={<OrganizationPage />} />
             <Route path="/for-buyers" element={<ForBuyersPage />} />
             <Route path="/for-suppliers" element={<ForSuppliersPage />} />
             <Route path="/request-a-quote" element={<RequestQuotePage />} />

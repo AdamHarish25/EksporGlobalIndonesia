@@ -6,6 +6,30 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ---
 
+## [4.1.0] - 2026-10-15
+
+### Added
+
+#### Organization Page (`/organization`)
+- `src/pages/OrganizationPage.tsx` (baru): hero "Corporate Organizational Structure", bagan tree CEO → 2 cabang (COO + CFO) dengan konektor garis CSS (horizontal di desktop, vertikal stacked di mobile), section "Leadership Photos", CTA About + Contact
+- Struktur: Adam Harish Abdurrahman (CEO) → Rizky Pangestu (COO), Muhammad Ragil Wicaksono (CFO)
+- Route baru `/organization` di `src/App.tsx` (lazy + Suspense, mengikuti pola halaman lain)
+- `NAV_LINKS`: menu "About" menjadi dropdown (About Us + Organization) — desktop hover, mobile expandable
+- Footer kolom Company: tambah link "Organization"
+
+#### Team Photos (`public/team/`)
+- `CEO-adha.jpeg` (Adam), `COO-iky.jpeg` (Rizky), `CFO-Ragil.jpeg` (Ragil)
+- Frame portrait `aspect-[5/6]` + `object-contain` (foto vertikal tampil penuh tanpa crop) + `object-bottom` (foto menempel border nama, tidak floating)
+- Background frame mengikuti backdrop tiap foto via field `bg` per leader: CEO `#5A0908`, COO `#012F7C`, CFO `#EDF1F2` — ruang kosong frame menyatu dengan foto
+
+### Changed
+
+#### Organization Page — English Copy (Google Translate Compatibility)
+- Seluruh copy halaman ditulis dalam English (bahasa dasar `pageLanguage: 'en'`) agar ikut ter-translate otomatis ke ID/AR/ZH via LanguageSwitcher
+- "Struktur Organisasi Perusahaan" → "Corporate Organizational Structure"; "Bagan Organisasi" → "Organization Chart"; "Foto Pimpinan" → "Leadership Photos"; deskripsi CEO/COO/CFO + tombol → English
+
+---
+
 ## [4.0.0] - 2026-10-13
 
 ### Added
@@ -336,6 +360,7 @@ Transformasi besar-besaran dari single-product landing page menjadi platform B2B
 
 | Version | Description |
 |---|---|
+| **4.1.0** | Organization page + team photos, English copy untuk Google Translate |
 | **4.0.0** | Rebrand Harvestora, routing per-halaman + Netlify fallback, translator 4 bahasa, carousel bulk supply, hapus Markets |
 | **3.1.0** | Remove palm cooking oil, add footer credit, product input combobox |
 | **3.0.0** | Grand revision: multi-product, multi-page B2B sourcing platform |
