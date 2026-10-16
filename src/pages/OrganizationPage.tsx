@@ -20,7 +20,7 @@ const LEADERS = [
     short: 'COO',
     icon: Settings2,
     photo: '/team/COO-iky.jpeg',
-    bg: '#012F7C',
+    bg: '#FFFFFF',
     desc: 'Manages daily operations, sourcing, quality control, and logistics coordination.',
     accent: 'from-slate-600 to-slate-800 shadow-slate-500/30',
     ring: 'ring-slate-300',
